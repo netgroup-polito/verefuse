@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verifuse web service</title>
+</head>
+<body>
+<h2>Verifuse RESTful Web Service</h2>
+<p>
+This web service has the following resources
+</p>
+<ul>
+	<li> <a href="webapi/verifuse">verifuse</a> 
+	<li> <a href="webapi/verifuse/caid">caid</a>
+	<li> <a href="webapi/verifuse/sap">sap</a>
+</ul>
+<p>
+1) Verifuse (VERInet FUnction SElection) which is the main resource <BR>
+2) CAID (CApability IDentifier) which has the task of analyzing policies and selecting the capabilities necessary to satisfy them and to send the capabilities to the ADP module.<BR>
+3) SAP (Selection And Placement) which has the task to receive the instances of the capability from the ADP module and to select the necessary network functions taking care also to allocate them in the physical server.<BR>
+</p>
+<script type="text/javascript">
+function openSwagger() {
+	str = window.location.href;
+	index = str.lastIndexOf('index.html');
+	if (index>=0)
+		str = str.substr(0, str.lastIndexOf('index.html'));
+	str = str + 'webapi/swagger.json';
+    window.open('_swagger-ui/index.html?url='+str,'_blank');
+}
+</script>
+<p>
+	<a href="javascript:openSwagger()">Swagger documentation</a>
+</p>
+<p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
+for more information on Jersey!
+</p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." name="rest-service-example">
+	<description>
+		Script for REST Web Service Verifuse
+	</description>
+
+	<property name="service.name" value="verifuse" />
+	
+	<property name="root.location" location="." />
+	<property name="src.dir" location="${root.location}/src" />
+	<property name="build.dir" location="${root.location}/build" />
+	<property name="lib.dir" location="${root.location}/lib" />
+	<property name="resources.dir" location="${root.location}/${serviceName}/WebContent" />
+	<property name="web.lib.dir" location="${resources.dir}/WEB-INF/lib" />
+	<property name="gen-tomcat-service.dir" location="${root.location}/target"/>
+	<property name="gen-war.dir" location="${root.location}/war" />
+	
+	<target name="init">
+		<echo message="Prepare to package the service in progress..." />
+		<!-- make directories -->
+		<mkdir dir="${gen-tomcat-service.dir}"/>		
+		<mkdir dir="${gen-war.dir}"/>
+	</target>  
+	
+	<target name="package" depends="init">
+		<antcall target="compile" />
+		<echo message="Package of service in progress..." />
+		<!-- copy web module resource files to temporary destination folder -->
+    	<copy toDir="${gen-tomcat-service.dir}" overwrite="true">
+        	<fileset dir="${resources.dir}">
+			</fileset>
+      	</copy>
+		<!-- copy class files to WEB-INF/classes directory -->
+    	<copy toDir="${gen-tomcat-service.dir}/WEB-INF/classes" overwrite="true">
+        	<fileset dir="${build.dir}"/>
+      	</copy>
+		<!-- copy lib files to WEB-INF/lib directory -->
+    	<copy toDir="${gen-tomcat-service.dir}/WEB-INF/lib" overwrite="true">
+        	<fileset dir="${lib.dir}">
+        		<include name="*.jar"/>
+			</fileset>
+      	</copy> 
+		<!-- make war archive -->
+		<jar destfile="${gen-war.dir}/${service.name}.war" basedir="${gen-tomcat-service.dir}"/>
+	</target>
+	
+</project>

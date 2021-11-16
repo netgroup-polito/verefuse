@@ -1,0 +1,369 @@
+<?xml version="1.0" standalone="yes"?>
+<project name="verifuse" basedir="." default="run">
+	<!-- set global properties -->
+	<property name="root.location" 		location="." />
+	<property name="build.dir" 	   		location="${root.location}/build"/>
+	<property name="lib.dir" 	   		location="${root.location}/lib" />
+	<property name="report.dir"   		location="log" />
+	<property name="schema.dir"    		location="${root.location}/xsd"/>
+	<property name="src.dir"       		location="${root.location}/src"/>
+	<property name="test.dir"      		location="${root.location}/test"/>
+	<property name="gen-src.dir"   		location="${root.location}/gen-src"/>
+	<property name="outputChain.dir"   	location="${root.location}/outputChain"/>
+	<property name="outputXjc.dir"   	location="${root.location}/outXjc"/>
+	<property name="xml.dir"   			location="${root.location}/xmlInputFile"/>
+	
+	
+	<property name="schema.actions"       		value="Actions.xsd"/>
+	<property name="schema.fields" 				value="Fields.xsd"/>
+	<property name="schema.actionsmanifest" 	value="ActionsManifest.xsd"/>
+	<property name="schema.fieldsmanifest" 		value="FieldsManifest.xsd"/>
+	<property name="schema.manifestvnfs" 		value="ManifestVNFs.xsd"/>
+	<property name="schema.requirementslist"   	value="RequirementsList.xsd"/>
+	<property name="schema.node"   				value="node.xsd"/>
+	<property name="schema.chainfunctionality"  value="ChainFunctionality.xsd"/>
+	<property name="schema.tools"  				value="tools.xsd"/>
+	<property name="schema.filesupport"  		value="fileSupport.xsd"/>
+	
+	
+	<property name="pckg.jaxb" 			     value="it.polito.verifuse.jaxb"/>
+	<property name="pckg.actions"	     	 value="${pckg.jaxb}.actions"/>
+	<property name="pckg.fields" 			 value="${pckg.jaxb}.fields"/>
+	<property name="pckg.actionsmanifest"	 value="${pckg.jaxb}.actionsmanifest"/>
+	<property name="pckg.fieldsmanifest"	 value="${pckg.jaxb}.fieldsmanifest"/>
+	<property name="pckg.manifestvnfs"	     value="${pckg.jaxb}.manifestvnfs"/>
+	<property name="pckg.requirementslist"   value="${pckg.jaxb}.requirementslist"/>
+	<property name="pckg.node"				 value="${pckg.jaxb}.node"/>
+	<property name="pckg.chainfunctionality" value="${pckg.jaxb}.chainfunctionality"/>
+	<property name="pckg.tools" 			 value="${pckg.jaxb}.tools"/>
+	<property name="pckg.filesupport" 		 value="${pckg.jaxb}.filesupport"/>
+	
+	
+	<property name="pckg.jaxb.location"    			  		value="it/polito/verifuse/jaxb"/>
+	<property name="pckg.location.actions"    	  			value="${pckg.jaxb.location}/actions"/>
+	<property name="pckg.location.fields" 					value="${pckg.jaxb.location}/fields"/>
+	<property name="pckg.location.actionsmanifest"	      	value="${pckg.jaxb.location}/actionsmanifest"/>
+	<property name="pckg.location.fieldsmanifest"	      	value="${pckg.jaxb.location}/fieldsmanifest"/>
+	<property name="pckg.location.manifestvnfs"	    		value="${pckg.jaxb.location}/manifestvnfs"/>
+	<property name="pckg.location.requirementslist"   		value="${pckg.jaxb.location}/requirementslist"/>
+	<property name="pckg.location.node"   					value="${pckg.jaxb.location}/node"/>
+	<property name="pckg.location.chainfunctionality"   	value="${pckg.jaxb.location}/chainfunctionality"/>
+	<property name="pckg.location.tools"   					value="${pckg.jaxb.location}/tools"/>
+	<property name="pckg.location.filesupport"   			value="${pckg.jaxb.location}/filesupport"/>
+	
+	
+	<property name="debug" 	    value="off"/>
+	<property name="debuglevel" value="lines,vars,source"/>
+	
+	<import file="neo4j-build.xml"/>
+	
+  	<path id="classpath">
+		<pathelement path="${src.dir}" />
+  		<pathelement path="${gen-src.dir}" />
+		<pathelement path="${build.dir}" />
+  		<pathelement path="${build.dir}/test-classes" />
+		<pathelement path="${schema.dir}" />
+  		<pathelement path="${test.dir}" />
+  		<fileset dir="${lib.dir}">
+  			 <include name="*.jar"/>
+  		</fileset>
+  		<fileset dir="${lib.dir}/junit">
+  			 <include name="*.jar"/>
+  		</fileset>
+	</path>
+	
+	<!-- Target generate-bindings -->
+	<target name="generate-bindings" description="Generate bindings">
+		<mkdir dir="${gen-src.dir}" />
+		<mkdir dir="${outputChain.dir}"/>
+		<mkdir dir="${outputXjc.dir}"/>
+
+		<!--  						SERVER   								-->
+		<echo message="Compiling the schema Actions.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcActions_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.actions}"/>
+			<arg value="${schema.dir}/${schema.actions}"/>
+		</exec>
+		
+		<echo message="Compiling the schema Fields.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcFields_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.fields}" />
+			<arg value="${schema.dir}/${schema.fields}" />
+		</exec>
+		
+		<echo message="Compiling the schema ActionsManifest.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcActionsManifest_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.actionsmanifest}" />
+			<arg value="${schema.dir}/${schema.actionsmanifest}" />
+		</exec>
+		
+		<echo message="Compiling the schema FieldManifest.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcFieldsManifest_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.fieldsmanifest}" />
+			<arg value="${schema.dir}/${schema.fieldsmanifest}" />
+		</exec>
+	
+		<echo message="Compiling the schema RequirementsList.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcRequirementsList_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.requirementslist}" />
+			<arg value="${schema.dir}/${schema.requirementslist}" />
+		</exec>
+		
+		<echo message="Compiling the schema ManifestVNFs.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcManifestVNFs_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.manifestvnfs}" />
+			<arg value="${schema.dir}/${schema.manifestvnfs}" />
+		</exec>
+		
+		<echo message="Compiling the schema node.xsd..." />
+		<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcNode_log.txt">
+			<arg value="-d" />
+			<arg value="${gen-src.dir}" />
+			<arg value="-p" />
+			<arg value="${pckg.node}" />
+			<arg value="${schema.dir}/${schema.node}" />
+		</exec>
+		<echo message="Compiling the schema ChainFunctionality.xsd..." />
+				<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcChain_log.txt">
+					<arg value="-d" />
+					<arg value="${gen-src.dir}" />
+					<arg value="-p" />
+					<arg value="${pckg.chainfunctionality}" />
+					<arg value="${schema.dir}/${schema.chainfunctionality}" />
+				</exec>
+		
+		<echo message="Compiling the schema Tools.xsd..." />
+				<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcTools_log.txt">
+					<arg value="-d" />
+					<arg value="${gen-src.dir}" />
+					<arg value="-p" />
+					<arg value="${pckg.tools}" />
+					<arg value="${schema.dir}/${schema.tools}" />
+				</exec>
+		<echo message="Compiling the schema fileSupport.xsd..." />
+				<exec executable="xjc" failonerror="true" output="${outputXjc.dir}/xjcfileSupport_log.txt">
+					<arg value="-d" />
+					<arg value="${gen-src.dir}" />
+					<arg value="-p" />
+					<arg value="${pckg.filesupport}" />
+					<arg value="${schema.dir}/${schema.filesupport}" />
+				</exec>
+
+	</target>
+	
+	<!-- compile all the schema and Java source files -->
+	<target name="compile" depends="generate-bindings" description="Compile all Java source files">
+		<mkdir dir="${build.dir}" />
+		
+		<!-- compile Java source files of the capabilities -->
+		<echo message="Compiling the java source files of Actions..." />				
+	    <javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.actions}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		
+		<echo message="Compiling the java source files of Fields..." />	
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.fields}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		
+		<!-- compile Java source files -->
+		<echo message="Compiling the java source files of ActionsManifest..." />		
+	    <javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.actionsmanifest}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		
+		<!-- compile Java source files -->
+		<echo message="Compiling the java source files of FieldsManifest..." />
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.fieldsmanifest}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		
+		<!-- compile Java source files  -->
+		<echo message="Compiling the java source files of RequirementsList..." />
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.requirementslist}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		
+		<!-- compile Java source files o -->
+		<echo message="Compiling the java source files of ManifetVNFs..." />
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.manifestvnfs}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		<echo message="Compiling the java source files of Nodes..." />
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.node}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		<echo message="Compiling the java source files of ChainFunctionality..." />
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.chainfunctionality}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		<echo message="Compiling the java source files of Tools..." />
+		<javac 
+	    	encoding="ISO-8859-1"
+	    	includeantruntime="false" 
+	    	srcdir="${gen-src.dir}/${pckg.location.tools}" 
+	    	destdir="${build.dir}" 
+	    	debug="${debug}" 
+	    	debuglevel="${debuglevel}">
+	        <classpath refid="classpath"/>
+	    </javac>
+		<echo message="Compiling the java source files of fileSupport..." />
+			<javac 
+		    	encoding="ISO-8859-1"
+		    	includeantruntime="false" 
+		    	srcdir="${gen-src.dir}/${pckg.location.filesupport}" 
+		    	destdir="${build.dir}" 
+		    	debug="${debug}" 
+		    	debuglevel="${debuglevel}">
+		        <classpath refid="classpath"/>
+		    </javac>
+
+		
+		<echo message="Compiling all the schema... DONE" />
+		<javac includeantruntime="false" destdir="${build.dir}" debug="on">
+			<src path="${src.dir}" />
+			<src path="${gen-src.dir}" />
+		  	<classpath refid="classpath" />
+			<compilerarg value="-Xlint"/>
+		</javac>
+		<echo message="DONE" />
+	</target>	
+
+	
+	<!-- run application -->
+	<target name="run" depends="compile" description="Run from the entry point">
+		<echo message="Running from the entry point..." />
+		<java classname="it.polito.verifuse.main.Main" fork="true">
+			<classpath refid="classpath" />
+		</java>
+	</target>
+	
+	<target name="build-test" >
+	    <mkdir dir="${build.dir}/test-classes"/>
+	    <javac includeantruntime="false" 
+	    	srcdir="${test.dir}/it/polito/verifuse/framework/test"
+	    	destdir="${build.dir}/test-classes"> 
+	    	<classpath refid="classpath"/>
+	    </javac>
+	</target>
+	
+	<!-- run test -->
+	<target name="testFramework" depends="build-test, clear-and-restart-neo4j">
+		<mkdir dir="${report.dir}" />
+		<junit printsummary="yes" haltonfailure="no" showoutput="false" fork="true">
+			<classpath refid="classpath"/>
+			<test name="it.polito.verifuse.framework.test.RDFTest"
+				haltonfailure="no" todir="${report.dir}">
+					<formatter type="plain" />
+					<formatter type="xml" />
+			</test>
+			<test name="it.polito.verifuse.framework.test.MainTest"
+				haltonfailure="no" todir="${report.dir}">
+					<formatter type="plain" />
+					<formatter type="xml" />
+			</test>
+			<test name="it.polito.verifuse.framework.test.LERTest"
+				haltonfailure="no" todir="${report.dir}">
+					<formatter type="plain" />
+					<formatter type="xml" />
+			</test>
+		</junit>
+		<fail if="test_failed" message="*** Some Tests FAILED ***"/>
+		<echo>*** All Tests PASSED  ***</echo>
+	</target>
+
+	<!-- clean Project application -->
+	<target name="clean" description="Deletes all the generated artifacts.">
+		<delete dir="${gen-src.dir}" />
+		<delete dir="${build.dir}" />
+		<delete dir="${outputXjc.dir}" />
+		<delete dir="${outputChain.dir}" />
+	</target>
+	
+	<!-- generate javadoc -->
+	<target name="javadoc" description="Generates javadoc" depends="compile">
+		<echo message="Generating javadoc..." />
+		<delete dir="docs/javadoc" />
+		<mkdir dir="docs/javadoc" />
+		<javadoc author="true"
+				 windowtitle="VeriFUSE" 
+				 use="true"
+				 classpathref="classpath" 
+				 destdir="docs/javadoc" 
+				 useexternalfile="yes"
+				 additionalparam="-Xdoclint:none">
+			<sourcepath>
+	            <path location="${src.dir}"/>
+				<path location="${gen-src.dir}"/>
+				<path location="${test.dir}"/>
+	        </sourcepath>
+		</javadoc>
+	</target>
+
+</project>

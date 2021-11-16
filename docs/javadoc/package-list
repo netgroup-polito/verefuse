@@ -1,0 +1,17 @@
+it.polito.verifuse.functionality
+it.polito.verifuse.jaxb.actions
+it.polito.verifuse.jaxb.actionsmanifest
+it.polito.verifuse.jaxb.chainfunctionality
+it.polito.verifuse.jaxb.fields
+it.polito.verifuse.jaxb.fieldsmanifest
+it.polito.verifuse.jaxb.manifestvnfs
+it.polito.verifuse.jaxb.node
+it.polito.verifuse.jaxb.requirementslist
+it.polito.verifuse.jaxb.tools
+it.polito.verifuse.main
+it.polito.verifuse.modules
+it.polito.verifuse.neo4j.client
+it.polito.verifuse.utility.classes
+it.polito.verifuse.utility.consts
+it.polito.verifuse.utility.exceptions
+it.polito.verifuse.utility.validator

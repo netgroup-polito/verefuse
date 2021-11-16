@@ -1,0 +1,23 @@
+analisi di uno schema in corso...
+compilazione di uno schema in corso...
+it/polito/verifuse/jaxb/chainfunctionality/Actions.java
+it/polito/verifuse/jaxb/chainfunctionality/Advertisings.java
+it/polito/verifuse/jaxb/chainfunctionality/Applications.java
+it/polito/verifuse/jaxb/chainfunctionality/ChainFunctionalities.java
+it/polito/verifuse/jaxb/chainfunctionality/ConfigField.java
+it/polito/verifuse/jaxb/chainfunctionality/ConfigFieldType.java
+it/polito/verifuse/jaxb/chainfunctionality/DaysAndTimesType.java
+it/polito/verifuse/jaxb/chainfunctionality/Documents.java
+it/polito/verifuse/jaxb/chainfunctionality/DomainlistanyURI.java
+it/polito/verifuse/jaxb/chainfunctionality/Emails.java
+it/polito/verifuse/jaxb/chainfunctionality/Fields.java
+it/polito/verifuse/jaxb/chainfunctionality/FunctionExtended.java
+it/polito/verifuse/jaxb/chainfunctionality/ListanyURI.java
+it/polito/verifuse/jaxb/chainfunctionality/Medias.java
+it/polito/verifuse/jaxb/chainfunctionality/ObjectFactory.java
+it/polito/verifuse/jaxb/chainfunctionality/Position.java
+it/polito/verifuse/jaxb/chainfunctionality/Scripts.java
+it/polito/verifuse/jaxb/chainfunctionality/TimePeriod.java
+it/polito/verifuse/jaxb/chainfunctionality/VersionOfIp.java
+it/polito/verifuse/jaxb/chainfunctionality/Webpages.java
+it/polito/verifuse/jaxb/chainfunctionality/package-info.java

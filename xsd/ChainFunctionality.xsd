@@ -1,0 +1,324 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"	
+        xmlns:tns="http://www.verifuse.polito.it/chainfunctionality"
+        targetNamespace="http://www.verifuse.polito.it/chainfunctionality"
+        elementFormDefault="qualified">
+ 	
+  	
+  	<element name="ChainFunctionalities">
+	  	<complexType>
+	  		<sequence>
+	  			<element name="Chain" minOccurs="1" maxOccurs="unbounded">
+	  			<complexType>
+	  				<sequence>
+	  					<element name="Solution" minOccurs="1" maxOccurs="unbounded">
+			  				<complexType>
+			  					<sequence>
+									<element name="Functionality" type="tns:functionExtended" minOccurs="0" maxOccurs="unbounded"> 
+									</element>
+					  			</sequence>
+					  			<attribute name="Sol_ID" 			type="string" use="required"></attribute>
+					  			<attribute name="Satisfiability" 	type="string" use="optional" default="PARTIAL"></attribute>
+					  		</complexType>
+				  		</element>
+			  		</sequence>
+			  		<attribute name="Chain_ID" type="string" use="required"></attribute>
+	  			</complexType>
+	  			</element>
+	  		</sequence>
+	  	</complexType>
+  	</element>
+  	
+  	<complexType name="functionExtended">
+  		<sequence>
+
+  			<element ref="tns:Fields" minOccurs="1" maxOccurs="1"></element>
+  			<element name="Actions" type="tns:Actions" minOccurs="1" maxOccurs="1"></element>
+  			<element name="SupportedByVNFS" minOccurs="1" maxOccurs="1">
+  				<complexType>
+  					<sequence>
+  						<element name="Vnf"  minOccurs="1" maxOccurs="unbounded">
+  							<complexType>
+  								<attribute name="Name" type="string" use="required"></attribute>
+  							</complexType>
+  						</element>
+  					</sequence>
+  				</complexType>
+  			</element> 			
+  		</sequence>
+  	</complexType>
+  	  	
+  	<complexType name="Actions">
+  		<sequence>
+  			<element name="Action" minOccurs="1" maxOccurs="unbounded">
+  				<complexType>
+  					<sequence>
+  						<element name="InfoOnAction" 	type="string" minOccurs="0" maxOccurs="unbounded"></element>
+  					</sequence>
+  					<attribute name="Name_Action" 		type="string" 	use="required"></attribute>
+  					<attribute name="Constraint_Action" type="string" 	use="optional"></attribute>
+  					<attribute name="Priority_Action" 	type="integer" 	use="optional"></attribute>
+  					<attribute name="Update_Value" 		type="string" 	use="optional"></attribute>
+  					
+  				</complexType>
+  			</element>
+  		</sequence>
+  	</complexType>
+  	
+  	
+	<simpleType name="configFieldType">
+		<restriction base="string">
+			<enumeration value="CONF_DEC"></enumeration>
+			<enumeration value="NOT_CONF_MAKE_DEC"></enumeration>
+			<enumeration value="NOT_CONF_NOT_DEC"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<element name="Fields">
+		<complexType>
+			<sequence>
+				<element name="IpSrc" 									minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Version" type="string" 	 use="required"></attribute>
+						<attribute name="Address" type="string" 	 use="required"></attribute>
+						<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+					</complexType>
+				</element>
+				<element name="IpDst" 									minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Version" type="string" 		use="required"></attribute>
+						<attribute name="Address" type="string" 	 	use="required"></attribute>
+						<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+					</complexType>
+				</element>				
+				<element name="PortSrc" 								minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Range" 		type="string" 		 use="required"></attribute>
+						<attribute name="RangeSetting" 	type="string" 	 use="required"></attribute>
+						<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+						
+					</complexType>
+				</element>				
+				<element name="PortDst" 								minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Range" 		type="string" 		 		use="required"></attribute>
+						<attribute name="RangeSetting" 	type="string" 	 			use="required"></attribute>
+						<attribute name="ConfigField" type="tns:configFieldType" 	use="optional"></attribute>
+					</complexType>
+				</element>				
+				<element name="Proto" 					minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="TypeProtocol" type="string"></attribute>
+						<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+						
+					</complexType>
+				</element>
+				<element name="Urls" 		type="tns:listanyURI" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Domains" 	type="tns:DomainlistanyURI" minOccurs="0" maxOccurs="1"></element>
+				<element name="VlanTag" 					minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="ConfigField" 	type="tns:configFieldType" 	use="optional"></attribute>
+						<attribute name="Tag" 			type="string" 				use="required"></attribute>
+					</complexType>					
+				</element>
+				
+				<element name="DaysAndTimes" 	type="tns:DaysAndTimesType" minOccurs="0" maxOccurs="1"></element>
+				
+				<element name="Documents"		type="tns:Documents" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Scripts"			type="tns:Scripts" 			minOccurs="0" maxOccurs="1"></element>
+				<element name="WebPages"		type="tns:Webpages" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Applications" 	type="tns:Applications" 	minOccurs="0" maxOccurs="1"></element>
+				<element name="Medias"			type="tns:Medias" 			minOccurs="0" maxOccurs="1"></element>
+				<element name="Advertisings"	type="tns:Advertisings" 	minOccurs="0" maxOccurs="1"></element>
+				<element name="Emails"			type="tns:Emails" 			minOccurs="0" maxOccurs="1"></element>
+				
+				<element name="Priority"    							minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="ConfigField" 	type="tns:configFieldType" use="optional"></attribute>
+						<attribute name="Value" 		type="string" use="required"></attribute>
+					</complexType>
+				</element>
+				<element name="Body"									minOccurs="0" maxOccurs="1">
+					<complexType>
+						<sequence>
+							<element name="Content" type="string" minOccurs="1" maxOccurs="1"></element>
+						</sequence>
+						<attribute name="ConfigField" 	type="tns:configFieldType" use="optional"></attribute>
+					</complexType>
+				
+				</element>
+				<element name="GeoPosition"	type="tns:Position" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Bandwidth"    							minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="ConfigField" 	type="tns:configFieldType" 	use="optional"></attribute>
+						<attribute name="Value" 		type="string" 				use="required"></attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+		<unique name="uniqueDay">
+				<selector xpath="tns:DaysAndTimes/tns:DayAndTime"/>
+				<field xpath="@Day"/>
+		</unique>
+	</element>
+	
+	
+	<simpleType name="configField">
+    	<restriction base="string">
+    		<enumeration value="inside"/>
+    		<enumeration value="outside"/>
+    	</restriction>
+    </simpleType>
+	
+	<simpleType name="versionOfIp">
+    	<restriction base="string">
+    		<enumeration value="ipv4"/>
+    		<enumeration value="ipv6"/>
+    	</restriction>
+    </simpleType>
+	
+	
+	<complexType name="Position">
+		<attribute name="Country" type="string" use="required"></attribute>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+	
+	
+	
+	<!-- Defined element to represent information about Data and time  -->
+	<complexType name="DaysAndTimesType">
+		<sequence>
+			<element name="DayAndTime" minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Day" 		type="string" 	use="required"></attribute>
+					<attribute name="TimeStart" type="string" 	use="optional"></attribute>
+					<attribute name="TimeEnd" 	type="string" 	use="optional"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="TimeZone" 		type="string" use="required"></attribute>
+		<attribute name="ConfigField" 	type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+    
+    <!-- Content type supported-->
+	<complexType name="Documents">
+		<sequence>
+			<element name="Document"  minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+		
+	</complexType>
+
+	<complexType name="Scripts">
+		<sequence>
+			<element name="Script" 	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+ 
+	<complexType name="Webpages">
+		<sequence>
+			<element name="WebPage"   minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Regex" type="string" use="optional"></attribute>								
+					<attribute name="Type" type="string" use="required"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="Applications">
+		<sequence>
+			<element name="Application"  	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="Medias">
+		<sequence>
+			<element name="Media"  	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>					
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="Advertisings">
+		<sequence>
+			<element name="Advertising"		minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+	
+	<complexType name="Emails">
+		<sequence>
+			<element name="Email"  	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+   	
+	<complexType name="TimePeriod">
+    	<attribute name="TimeZone" type="string"/>
+    	<attribute name="Start" type="string"/>
+    	<attribute name="End"   type="string"/>
+    </complexType>
+        
+
+	
+	<complexType name="DomainlistanyURI">
+		<sequence>
+			<element name="Domain"  maxOccurs="unbounded">
+				<complexType>
+					<attribute name="DomainValue" type="anyURI"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+	
+	<complexType name="listanyURI">
+		<sequence>
+			<element name="Url" 	maxOccurs="unbounded">
+				<complexType>
+					<attribute name="URLvalue" type="anyURI"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="ConfigField" type="tns:configFieldType" use="optional"></attribute>
+	</complexType>
+	
+
+  	
+  	
+</schema>

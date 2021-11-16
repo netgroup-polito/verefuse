@@ -1,0 +1,2893 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RequirementsList xmlns="http://www.verifuse.polito.it/requirementslist" xmlns:ns2="http://www.verifuse.polito.it/fields">
+    <Requirement Req_ID="1">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="2">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="3">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="4">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="5">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="6">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="7">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="8">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="9">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="10">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="11">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="12">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="13">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="14">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="15">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="16">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="17">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="18">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="19">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="20">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="21">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="22">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="23">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="24">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="25">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="26">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="27">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="28">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="29">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="30">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="31">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="32">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="33">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="34">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="35">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="36">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="37">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="38">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="39">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="40">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="41">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="42">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="43">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="44">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="45">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="46">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="47">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="48">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="49">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="50">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="51">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="52">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="53">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="54">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="55">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="56">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="57">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="58">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="59">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="60">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="61">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="62">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="63">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="64">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="65">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="66">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="67">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="68">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="69">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="70">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="71">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="72">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="73">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="74">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="75">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="76">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="77">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="78">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="79">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="80">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="81">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="82">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="83">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="84">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="85">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="86">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="87">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="88">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="89">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="90">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="91">
+        <Info>
+            <Description>Questa è una descrizione REQ1</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="*"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="mydomain.it"/>
+            </ns2:Domains>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                <ns2:DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2" Concurrent="true">
+                <ActionRequired Action="DENY_TRAFFIC"/>
+                <ActionRequired Action="COUNT"/>
+            </ActionSet>
+            <ActionSet Order="3">
+                <ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="92">
+        <Info>
+            <Description>Questa è una descrizione REQ2</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="93">
+        <Info>
+            <Description>Questa è una descrizione REQ3</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:VlanTag>3</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:Body>*</ns2:Body>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="94">
+        <Info>
+            <Description>Questa è una descrizione REQ4</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+            <ns2:Medias>
+                <ns2:Media Type="IMAGES" Regex="*.jpg"/>
+            </ns2:Medias>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="95">
+        <Info>
+            <Description>Questa è una descrizione REQ5</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="8080-9000" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="96">
+        <Info>
+            <Description>Questa è una descrizione REQ6</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv6" Address="*"/>
+            <ns2:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="ICMP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Friday"/>
+            </ns2:DaysAndTimes>
+            <ns2:Emails>
+                <ns2:Email Type="admin@example.com" Regex="regexPattern"/>
+            </ns2:Emails>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="97">
+        <Info>
+            <Description>Questa è una descrizione REQ7</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortSrc Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="TCP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1" Concurrent="true">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpSrcVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+                <ActionRequired Action="ALERT"/>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="STORE_PACKET"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="98">
+        <Info>
+            <Description>Questa è una descrizione REQ8</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="*"/>
+            <ns2:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="inside"/>
+            <ns2:Proto TypeProtocol="UDP"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="*"/>
+            </ns2:DaysAndTimes>
+            <ns2:Documents>
+                <ns2:Document Type="PDF"/>
+                <ns2:Document Type="DOCX"/>
+            </ns2:Documents>
+            <ns2:GeoPosition Country="Europa"/>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC">
+                    <FieldsParametric>
+                        <Field Ref="IpDstVer4"/>
+                        <Field Ref="PortDst"/>
+                    </FieldsParametric>
+                </ActionRequired>
+            </ActionSet>
+            <ActionSet Order="2">
+                <ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="99">
+        <Info>
+            <Description>Questa è una descrizione REQ9</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+            <ns2:PortDst Range="100-10500" RangeSetting="outside"/>
+            <ns2:Proto TypeProtocol="HTTP"/>
+            <ns2:Urls>
+                <ns2:Url URLvalue="http://example.com/provapage.html"/>
+            </ns2:Urls>
+            <ns2:Domains>
+                <ns2:Domain DomainValue="google.com"/>
+            </ns2:Domains>
+            <ns2:VlanTag>*</ns2:VlanTag>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                <ns2:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="1">
+                <ActionRequired Action="LOG_TRAFFIC"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+    <Requirement Req_ID="100">
+        <Info>
+            <Description>Questa è una descrizione REQ10</Description>
+            <Administrator>MARIO ROSSI</Administrator>
+        </Info>
+        <ns2:Fields>
+            <ns2:IpSrc Version="ipv4" Address="10.0.3.21"/>
+            <ns2:IpDst Version="ipv4" Address="1.2.3.4"/>
+            <ns2:DaysAndTimes TimeZone="TMZ">
+                <ns2:DayAndTime Day="Sunday"/>
+            </ns2:DaysAndTimes>
+        </ns2:Fields>
+        <Actions>
+            <ActionSet Order="2">
+                <ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+            </ActionSet>
+        </Actions>
+    </Requirement>
+</RequirementsList>

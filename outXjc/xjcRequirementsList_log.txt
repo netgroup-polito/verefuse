@@ -1,0 +1,34 @@
+analisi di uno schema in corso...
+compilazione di uno schema in corso...
+it/polito/verifuse/jaxb/requirementslist/Action.java
+it/polito/verifuse/jaxb/requirementslist/ActionSetType.java
+it/polito/verifuse/jaxb/requirementslist/ActionsReq.java
+it/polito/verifuse/jaxb/requirementslist/Advertisings.java
+it/polito/verifuse/jaxb/requirementslist/AlterableField.java
+it/polito/verifuse/jaxb/requirementslist/Applications.java
+it/polito/verifuse/jaxb/requirementslist/AuthNSuite.java
+it/polito/verifuse/jaxb/requirementslist/ConfigField.java
+it/polito/verifuse/jaxb/requirementslist/DaysAndTimesType.java
+it/polito/verifuse/jaxb/requirementslist/DaysType.java
+it/polito/verifuse/jaxb/requirementslist/Documents.java
+it/polito/verifuse/jaxb/requirementslist/DomainlistanyURI.java
+it/polito/verifuse/jaxb/requirementslist/Emails.java
+it/polito/verifuse/jaxb/requirementslist/Fields.java
+it/polito/verifuse/jaxb/requirementslist/IntegritySuite.java
+it/polito/verifuse/jaxb/requirementslist/Iptype.java
+it/polito/verifuse/jaxb/requirementslist/KeyExchangeSuite.java
+it/polito/verifuse/jaxb/requirementslist/ListanyURI.java
+it/polito/verifuse/jaxb/requirementslist/Medias.java
+it/polito/verifuse/jaxb/requirementslist/ObjectFactory.java
+it/polito/verifuse/jaxb/requirementslist/Position.java
+it/polito/verifuse/jaxb/requirementslist/Ptype.java
+it/polito/verifuse/jaxb/requirementslist/RangeSettings.java
+it/polito/verifuse/jaxb/requirementslist/ReferField.java
+it/polito/verifuse/jaxb/requirementslist/Requirement.java
+it/polito/verifuse/jaxb/requirementslist/RequirementsList.java
+it/polito/verifuse/jaxb/requirementslist/Scripts.java
+it/polito/verifuse/jaxb/requirementslist/TimePeriod.java
+it/polito/verifuse/jaxb/requirementslist/TypeAction.java
+it/polito/verifuse/jaxb/requirementslist/VersionOfIp.java
+it/polito/verifuse/jaxb/requirementslist/Webpages.java
+it/polito/verifuse/jaxb/requirementslist/package-info.java

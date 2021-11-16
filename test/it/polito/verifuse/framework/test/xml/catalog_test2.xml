@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManifestVNFs
+	xmlns="http://www.verifuse.polito.it/manifestvnfs"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:fd="http://www.verifuse.polito.it/fieldsmanifest"
+	xmlns:ac="http://www.verifuse.polito.it/actionsmanifest"
+	xsi:schemaLocation="http://www.verifuse.polito.it/manifestvnfs ../../../../../../../xsd/ManifestVNFs.xsd">
+
+	
+		<ManifestVNF Manifest_ID="VNF1">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Urls" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+	<ManifestVNF Manifest_ID="VNF2">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents"/>
+				<fd:Field Type="Urls" />
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+
+
+</ManifestVNFs>

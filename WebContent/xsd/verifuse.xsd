@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.verifuse.polito.it/rest"
+        targetNamespace="http://www.verifuse.polito.it/rest"
+        elementFormDefault="qualified">
+        
+        <annotation>
+	      	<documentation xml:lang="en">
+		      	This schema was created to represent the main resource of the
+		      	REST API.
+	    	</documentation>
+	  	</annotation>
+	  	
+	  	<element name="VerifuseResponse">
+		  	<complexType>
+				<sequence>
+					<element name="self" type="anyURI" minOccurs="1" maxOccurs="1"/>
+					<element name="caid" type="anyURI" minOccurs="1" maxOccurs="1"/>
+					<element name="sap"  type="anyURI" minOccurs="1" maxOccurs="1"/>
+				</sequence>
+			</complexType>
+		</element>
+</schema>

@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_43">
+        <Solution Sol_ID="SOL_0" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_1" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_10" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF8"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_11" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_12" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_13" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF8"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_14" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF8"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_15" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_2" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_3" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF8"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_4" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_5" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_6" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_7" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_8" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_9" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                    <Body ConfigField="CONF_DEC">
+                        <Content>*</Content>
+                    </Body>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>IP_DST_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="*" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[3]"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="REMARK_PACKET" Constraint_Action="VlanTag" Priority_Action="1" Update_Value="newtagVlan"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

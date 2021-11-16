@@ -1,0 +1,36 @@
+START 1622625364059
+END 121
+Error during the allocation node in neo4j db
+Error during the allocation node in neo4j db
+Error during the allocation node in neo4j db
+Optimization was stopped with status infeasible
+Error during the allocation node in neo4j db
+Error during the allocation node in neo4j db
+Optimization was stopped with status infeasible
+Error during the allocation node in neo4j db
+Error during the allocation node in neo4j db
+Error during the allocation node in neo4j db
+Optimization was stopped with status infeasible
+<!> Requirement whit id= 9. No Functionality are found.
+<!> Requirement whit id= 10. No Functionality are found.
+START 1622625367313
+END 183
+Optimization was stopped with status infeasible
+Optimization was stopped with status infeasible
+Optimization was stopped with status infeasible
+<!> Requirement whit id= 9. No Functionality are found.
+<!> Requirement whit id= 10. No Functionality are found.
+START 1622625369025
+END 118
+Optimization was stopped with status infeasible
+Optimization was stopped with status infeasible
+Optimization was stopped with status infeasible
+<!> Requirement whit id= 9. No Functionality are found.
+<!> Requirement whit id= 10. No Functionality are found.
+START 1622625370601
+END 174
+Optimization was stopped with status infeasible
+Optimization was stopped with status infeasible
+Optimization was stopped with status infeasible
+<!> Requirement whit id= 9. No Functionality are found.
+<!> Requirement whit id= 10. No Functionality are found.

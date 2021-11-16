@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_85">
+        <Solution Sol_ID="SOL_0" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="LIMIT_BANDWIDTH" Constraint_Action="20Mbit/s" Priority_Action="2"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_1" Satisfiability="COMPLETE">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LIMIT_BANDWIDTH" Constraint_Action="20Mbit/s" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_2" Satisfiability="COMPLETE">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LIMIT_BANDWIDTH" Constraint_Action="20Mbit/s" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_3" Satisfiability="COMPLETE">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LIMIT_BANDWIDTH" Constraint_Action="20Mbit/s" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_4" Satisfiability="COMPLETE">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF8"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="8080-9000" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="*"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LIMIT_BANDWIDTH" Constraint_Action="20Mbit/s" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

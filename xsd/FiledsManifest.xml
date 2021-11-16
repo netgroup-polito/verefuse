@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldsManifest
+	xmlns="http://www.verifuse.polito.it/fieldsmanifest"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.verifuse.polito.it/fieldsmanifest FieldsManifest.xsd">
+
+	
+	<Field Type="IpSrcVer4"></Field>
+	<Field Type="PortSrc">
+		<Supports>
+			<Support>Days</Support>
+			<Support>Time</Support>
+		</Supports>
+	</Field>
+	<Field Type="DaysAndTimes">
+		<Supports>
+			<Support>Days</Support>
+			<Support>Time</Support>
+		</Supports>
+	</Field>
+
+
+
+</FieldsManifest>

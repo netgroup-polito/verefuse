@@ -1,0 +1,88 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"
+		xmlns:fd="http://www.verifuse.polito.it/fields"
+		xmlns:ac="http://www.verifuse.polito.it/actions"
+        xmlns:tns="http://www.verifuse.polito.it/requirementslist"
+        targetNamespace="http://www.verifuse.polito.it/requirementslist"
+        elementFormDefault="qualified">
+
+
+  	<import namespace="http://www.verifuse.polito.it/fields" 	schemaLocation="Fields.xsd"/>  	  	
+ 	<import namespace="http://www.verifuse.polito.it/actions" 	schemaLocation="Actions.xsd"/>  	  	
+ 	
+  	
+  	<element name="RequirementsList">
+	  	<complexType>
+	  		<sequence>
+	  			<element ref="tns:Requirement" minOccurs="1" maxOccurs="unbounded"/>
+	  		</sequence>
+	  	</complexType>
+	  	<unique name="uniqueRequirementID">
+			<selector xpath="tns:Requirement"/>
+			<field xpath="@Req_ID"/>
+		</unique>
+  	</element>
+  	
+  	<element name="Requirement">
+  		<complexType>
+  			<sequence>
+  				<element name="Info" minOccurs="1" maxOccurs="1"> 
+  					<complexType>
+  						<sequence>
+  							<element name="Description" type="string"></element>
+  							<element name="Administrator" type="string"></element>
+  						</sequence>
+  					</complexType>
+  				</element>
+  				<element ref="fd:Fields" 	></element>
+  				<element name="Actions" 	type="tns:ActionSetType"></element>	
+  			</sequence>
+  		<attribute name="Req_ID" type="integer" use="required"></attribute>
+  		</complexType>
+  		
+		<unique name="uniqueOrderNumber">
+			<selector xpath="tns:Actions/tns:ActionSet"/>
+			<field xpath="@Order"/>
+		</unique>
+		<unique name="uniqueActionReq">
+			<selector xpath="tns:Actions/tns:ActionSet/tns:ActionRequired"/>
+			<field xpath="@Action"/>
+		</unique>			
+		
+  	</element>
+  	  	
+  	<complexType name="ActionSetType">
+  		<sequence>
+  			<element name="ActionSet"  minOccurs="1" maxOccurs="unbounded">
+  				<complexType>
+  					<sequence>
+  						<element name="ActionRequired" type="tns:ActionsReq" minOccurs="1" maxOccurs="unbounded"></element>
+  					</sequence>
+			  		<attribute name="Order" 		type="integer" use="optional" ></attribute>
+  					<attribute name="Concurrent" 	type="boolean" use="optional" default="false" ></attribute>
+  				</complexType>
+  			</element>
+  		</sequence>	
+  	</complexType>  	
+  	
+  	<complexType name="ActionsReq">
+  		<sequence>
+  			<element name="FieldsParametric" minOccurs="0" maxOccurs="1">
+  				<complexType>
+  					<sequence>
+  						<element name="Field"  minOccurs="1" maxOccurs="unbounded">
+  							<complexType>
+  								<attribute name="Ref" type="fd:ReferField" use="required"></attribute>
+  							</complexType>
+  						</element>
+  					</sequence>
+  				</complexType>
+  			</element>  			
+  		</sequence>
+  		<attribute name="Action" 		type="ac:typeAction" 	use="required"/>	 
+  		<attribute name="Constraint" 	type="string" 			use="optional" default=""/> 
+  		<attribute name="UpdateValue" 	type="string" 			use="optional" />	
+  	</complexType>
+  	
+</schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:tns="http://www.verifuse.polito.it/filesupport"
+        targetNamespace="http://www.verifuse.polito.it/filesupport"
+        elementFormDefault="qualified">
+
+	
+	<element name="fileSupport">	
+		<complexType>
+			<sequence>
+				<element name="Suite" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="SupportValue" minOccurs="1" maxOccurs="unbounded">
+								<complexType>
+									<attribute name="value" type="string" use="required"></attribute>
+								</complexType>
+							</element>
+						</sequence>
+						<attribute name="NameSuite" type="string" use="required"></attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+		<unique name="uniqueNameSuite">
+			<selector xpath="tns:Suite"></selector>
+			<field xpath="@NameSuite"></field>
+		</unique>
+	</element>	
+	
+
+</schema>

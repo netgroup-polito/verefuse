@@ -1,0 +1,2248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManifestVNFs
+	xmlns="http://www.verifuse.polito.it/manifestvnfs"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:fd="http://www.verifuse.polito.it/fieldsmanifest"
+	xmlns:ac="http://www.verifuse.polito.it/actionsmanifest"
+	xsi:schemaLocation="http://www.verifuse.polito.it/manifestvnfs ../../../../../../../xsd/ManifestVNFs.xsd">
+
+	
+	<ManifestVNF Manifest_ID="VNF1">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents">
+					<fd:Supports>
+						<fd:Support>PDF</fd:Support>
+						<fd:Support>DOCX</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Urls" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ANTIVIRUS"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF2">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+				<fd:Field Type="Displace"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA2</ac:Support>
+						<ac:Support>SHA1</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF3">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC">
+						<ac:Support>AES128</ac:Support>
+						<ac:Support>RSA</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF4">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="PortSrc"></fd:Field>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY"/>
+					<ac:ActionSupport Action="PROTECT_CONFIDENTIALITY"/>
+					<ac:ActionSupport Action="NAT_TRAFFIC"/>
+					<ac:ActionSupport Action="AUTHN_TRAFFIC">
+						<ac:Support>ECDSA</ac:Support>
+						<ac:Support>DSA</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF5">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF7">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF6">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>				
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="FORWARD_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF8">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="IpDstVer4"></fd:Field>
+				<fd:Field Type="IpDstVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="GeoPosition"></fd:Field>
+				<fd:Field Type="Priority"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF9">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="VlanTag"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>		
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF10">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>  
+				 <fd:Field Type="IpSrcVer4"/>
+				 <fd:Field Type="IpDstVer4"/>
+				 <fd:Field Type="IpSrcVer6"/>
+				 <fd:Field Type="IpDstVer6"/>
+				 <fd:Field Type="PortSrc"/>
+				 <fd:Field Type="PortDst"/>
+				 <fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+						<fd:Support>SMTP</fd:Support>
+						<fd:Support>HTTPS</fd:Support>
+					</fd:Supports>
+				 </fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"/>
+					<ac:ActionSupport Action="ALERT"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA1</ac:Support>
+						<ac:Support>SHA2</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF11">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents">
+					<fd:Supports>
+						<fd:Support>PDF</fd:Support>
+						<fd:Support>DOCX</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Urls" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ANTIVIRUS"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF12">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+				<fd:Field Type="Displace"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA2</ac:Support>
+						<ac:Support>SHA1</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF13">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC">
+						<ac:Support>AES128</ac:Support>
+						<ac:Support>RSA</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF14">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="PortSrc"></fd:Field>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY"/>
+					<ac:ActionSupport Action="PROTECT_CONFIDENTIALITY"/>
+					<ac:ActionSupport Action="NAT_TRAFFIC"/>
+					<ac:ActionSupport Action="AUTHN_TRAFFIC">
+						<ac:Support>ECDSA</ac:Support>
+						<ac:Support>DSA</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF15">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF17">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF16">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>				
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="FORWARD_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF18">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="IpDstVer4"></fd:Field>
+				<fd:Field Type="IpDstVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="GeoPosition"></fd:Field>
+				<fd:Field Type="Priority"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF19">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="VlanTag"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>		
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF20">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>  
+				 <fd:Field Type="IpSrcVer4"/>
+				 <fd:Field Type="IpDstVer4"/>
+				 <fd:Field Type="IpSrcVer6"/>
+				 <fd:Field Type="IpDstVer6"/>
+				 <fd:Field Type="PortSrc"/>
+				 <fd:Field Type="PortDst"/>
+				 <fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+						<fd:Support>SMTP</fd:Support>
+						<fd:Support>HTTPS</fd:Support>
+					</fd:Supports>
+				 </fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"/>
+					<ac:ActionSupport Action="ALERT"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA1</ac:Support>
+						<ac:Support>SHA2</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>	
+	<ManifestVNF Manifest_ID="VNF21">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents">
+					<fd:Supports>
+						<fd:Support>PDF</fd:Support>
+						<fd:Support>DOCX</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Urls" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ANTIVIRUS"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF22">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+				<fd:Field Type="Displace"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA2</ac:Support>
+						<ac:Support>SHA1</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF23">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC">
+						<ac:Support>AES128</ac:Support>
+						<ac:Support>RSA</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF24">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="PortSrc"></fd:Field>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY"/>
+					<ac:ActionSupport Action="PROTECT_CONFIDENTIALITY"/>
+					<ac:ActionSupport Action="NAT_TRAFFIC"/>
+					<ac:ActionSupport Action="AUTHN_TRAFFIC">
+						<ac:Support>ECDSA</ac:Support>
+						<ac:Support>DSA</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF25">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF27">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF26">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>				
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="FORWARD_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF28">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="IpDstVer4"></fd:Field>
+				<fd:Field Type="IpDstVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="GeoPosition"></fd:Field>
+				<fd:Field Type="Priority"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF29">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="VlanTag"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>		
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF30">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>  
+				 <fd:Field Type="IpSrcVer4"/>
+				 <fd:Field Type="IpDstVer4"/>
+				 <fd:Field Type="IpSrcVer6"/>
+				 <fd:Field Type="IpDstVer6"/>
+				 <fd:Field Type="PortSrc"/>
+				 <fd:Field Type="PortDst"/>
+				 <fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+						<fd:Support>SMTP</fd:Support>
+						<fd:Support>HTTPS</fd:Support>
+					</fd:Supports>
+				 </fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"/>
+					<ac:ActionSupport Action="ALERT"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA1</ac:Support>
+						<ac:Support>SHA2</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>	
+	<ManifestVNF Manifest_ID="VNF31">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents">
+					<fd:Supports>
+						<fd:Support>PDF</fd:Support>
+						<fd:Support>DOCX</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Urls" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ANTIVIRUS"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF32">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+				<fd:Field Type="Displace"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA2</ac:Support>
+						<ac:Support>SHA1</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF33">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC">
+						<ac:Support>AES128</ac:Support>
+						<ac:Support>RSA</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF34">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="PortSrc"></fd:Field>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY"/>
+					<ac:ActionSupport Action="PROTECT_CONFIDENTIALITY"/>
+					<ac:ActionSupport Action="NAT_TRAFFIC"/>
+					<ac:ActionSupport Action="AUTHN_TRAFFIC">
+						<ac:Support>ECDSA</ac:Support>
+						<ac:Support>DSA</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF35">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF37">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF36">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>				
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="FORWARD_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF38">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="IpDstVer4"></fd:Field>
+				<fd:Field Type="IpDstVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="GeoPosition"></fd:Field>
+				<fd:Field Type="Priority"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF39">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="VlanTag"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>		
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF40">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>  
+				 <fd:Field Type="IpSrcVer4"/>
+				 <fd:Field Type="IpDstVer4"/>
+				 <fd:Field Type="IpSrcVer6"/>
+				 <fd:Field Type="IpDstVer6"/>
+				 <fd:Field Type="PortSrc"/>
+				 <fd:Field Type="PortDst"/>
+				 <fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+						<fd:Support>SMTP</fd:Support>
+						<fd:Support>HTTPS</fd:Support>
+					</fd:Supports>
+				 </fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"/>
+					<ac:ActionSupport Action="ALERT"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA1</ac:Support>
+						<ac:Support>SHA2</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>	
+	<ManifestVNF Manifest_ID="VNF41">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="Documents">
+					<fd:Supports>
+						<fd:Support>PDF</fd:Support>
+						<fd:Support>DOCX</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Urls" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag" TypeConfig="NOT_CONF_MAKE_DEC"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ANTIVIRUS"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF42">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="Proto"/>
+				<fd:Field Type="DaysAndTimes">
+					<fd:Supports>
+						<fd:Support>DAY</fd:Support>
+						<fd:Support>TIME</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="VlanTag"/>
+				<fd:Field Type="Scripts">
+					<fd:Supports>
+						<fd:Support>JS</fd:Support>
+						<fd:Support>BASH</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+				<fd:Field Type="Priority"/>
+				<fd:Field Type="Bandwith"/>
+				<fd:Field Type="Body"/>
+				<fd:Field Type="Displace"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA2</ac:Support>
+						<ac:Support>SHA1</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	<ManifestVNF Manifest_ID="VNF43">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC">
+						<ac:Support>AES128</ac:Support>
+						<ac:Support>RSA</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF44">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="PortSrc"></fd:Field>
+				<fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>UDP</fd:Support>
+					</fd:Supports>
+				</fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="ENCRYPT_TRAFFIC"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY"/>
+					<ac:ActionSupport Action="PROTECT_CONFIDENTIALITY"/>
+					<ac:ActionSupport Action="NAT_TRAFFIC"/>
+					<ac:ActionSupport Action="AUTHN_TRAFFIC">
+						<ac:Support>ECDSA</ac:Support>
+						<ac:Support>DSA</ac:Support>
+					</ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+ 
+	<ManifestVNF Manifest_ID="VNF45">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF47">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALERT"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="ALLOW_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF46">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"/>
+				<fd:Field Type="IpDstVer4"/>
+				<fd:Field Type="IpSrcVer6"/>
+				<fd:Field Type="IpDstVer6"/>				
+				<fd:Field Type="PortSrc"/>
+				<fd:Field Type="PortDst"/>
+				<fd:Field Type="Proto"/>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="STORE_PACKET"></ac:ActionSupport>
+					<ac:ActionSupport Action="FORWARD_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF48">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="IpDstVer4"></fd:Field>
+				<fd:Field Type="IpDstVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="GeoPosition"></fd:Field>
+				<fd:Field Type="Priority"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"></ac:ActionSupport>
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF49">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>
+				<fd:Field Type="IpSrcVer4"></fd:Field>
+				<fd:Field Type="IpSrcVer6"></fd:Field>
+				<fd:Field Type="Proto"></fd:Field>
+				<fd:Field Type="VlanTag"></fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="DENY_TRAFFIC"></ac:ActionSupport>
+					<ac:ActionSupport Action="COUNT"></ac:ActionSupport>
+					<ac:ActionSupport Action="REMARK_PACKET"></ac:ActionSupport>		
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+	
+		<ManifestVNF Manifest_ID="VNF50">
+		<Description>PROVA DESCRIZIONE DI UNA VNF</Description>
+		<GeneralInfo Vendor="vd1">
+			<WebSite>http://www.site.com</WebSite>
+		</GeneralInfo>
+		<SoftwareInfo>
+			<Developers>
+				<Developer>Mario Rossi</Developer>
+			</Developers>
+			<VersionInfo version="1.0" release="1.0" releaseDate="2020\02\02"/>
+			<Repository>https://github.com/same.git</Repository>
+			<ProgrammingLanguagesUsed>
+				<ProgrammingLanguage>C</ProgrammingLanguage>
+			</ProgrammingLanguagesUsed>
+			<OperatingSystemsSupported>
+				<OperatingSystem OS_Type="Unix"/>
+			</OperatingSystemsSupported>
+			<Licence>Other</Licence>
+		</SoftwareInfo>
+		<HardwareInfo>
+			<RAM value="300" unit="MB"/>
+			<Disk value="150" unit="MB"/>
+		</HardwareInfo>
+		<ManifestInfo>
+			<fd:FieldsManifest>  
+				 <fd:Field Type="IpSrcVer4"/>
+				 <fd:Field Type="IpDstVer4"/>
+				 <fd:Field Type="IpSrcVer6"/>
+				 <fd:Field Type="IpDstVer6"/>
+				 <fd:Field Type="PortSrc"/>
+				 <fd:Field Type="PortDst"/>
+				 <fd:Field Type="Proto">
+					<fd:Supports>
+						<fd:Support>TCP</fd:Support>
+						<fd:Support>UDP</fd:Support>
+						<fd:Support>SMTP</fd:Support>
+						<fd:Support>HTTPS</fd:Support>
+					</fd:Supports>
+				 </fd:Field>
+			</fd:FieldsManifest>
+			<ac:ActionsManifest>
+					<ac:ActionSupport Action="LOG_TRAFFIC"/>
+					<ac:ActionSupport Action="ALERT"/>
+					<ac:ActionSupport Action="PROTECT_INTEGRITY">
+						<ac:Support>SHA1</ac:Support>
+						<ac:Support>SHA2</ac:Support>
+					</ac:ActionSupport>					
+			</ac:ActionsManifest>
+		</ManifestInfo>
+	</ManifestVNF>
+
+</ManifestVNFs>

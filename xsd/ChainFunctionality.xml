@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChainFunctionalities
+	xmlns="http://www.verifuse.polito.it/chainfunctionality"
+	xmlns:fd="http://www.verifuse.polito.it/fields"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.verifuse.polito.it/chainfunctionality ChainFunctionality.xsd">
+
+	
+	<Chain Chain_ID="Chain_0">
+		<Solution Sol_ID="sol1" >
+			<Functionality>
+				<Fields>
+					<IpDst Version="ipv4" Address="10.0.3.21/24" />
+					<PortSrc Range="100-10500" RangeSetting="inside"/>	
+					<Domains ConfigField="CONF_DEC">
+						<Domain DomainValue="*"></Domain>
+					</Domains>				
+				</Fields>
+				<Actions>
+					<Action Name_Action="ALLOW" Update_Value="10"></Action>
+				</Actions>
+				<SupportedByVNFS>
+					<Vnf Name="VNF1"></Vnf>
+				</SupportedByVNFS>
+			</Functionality>
+		</Solution>
+	</Chain>
+	
+	  
+</ChainFunctionalities>

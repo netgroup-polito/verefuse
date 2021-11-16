@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequirementsList
+	xmlns="http://www.verifuse.polito.it/requirementslist"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:fd="http://www.verifuse.polito.it/fields"
+	xmlns:ac="http://www.verifuse.polito.it/actions"
+	xsi:schemaLocation="http://www.verifuse.polito.it/requirementslist ../xsd/RequirementsList.xsd">
+	
+	 	
+	<Requirement Req_ID="1">
+		<Info>
+			<Description>Questa è una descrizione REQ1 - </Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="1024-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="*"/>	
+			<fd:Domains>
+				<fd:Domain DomainValue="*"/>
+			</fd:Domains>									
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>  		
+			</fd:DaysAndTimes>			
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="LOG_TRAFFIC"/>
+			</ActionSet >	
+			<ActionSet Order="2" >
+				<ActionRequired Action="DENY_TRAFFIC"/>
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="2">
+		<Info>
+			<Description>Questa è una descrizione REQ2 - Notare la
+						 differenza tra REQ1 - l'ordinamento usato nelle azioni
+			</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="1024-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="*"/>
+			<fd:Domains>
+				<fd:Domain DomainValue="*"/>
+			</fd:Domains>						
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>  		
+			</fd:DaysAndTimes>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpSrcVer4"/>  
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+			</ActionSet >	
+			<ActionSet Order="2" Concurrent="true">
+				<ActionRequired Action="ALERT"/>
+				<ActionRequired Action="COUNT"/>
+			</ActionSet>
+			<ActionSet Order="3">
+				<ActionRequired Action="STORE_PACKET"/>
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="3">
+		<Info>
+			<Description>Questa è una descrizione REQ5</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="8080-9000" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*"/>
+			</fd:DaysAndTimes>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet>
+				<ActionRequired Action="LOG_TRAFFIC"></ActionRequired>
+			</ActionSet>	
+			<ActionSet>
+				<ActionRequired Action="LIMIT_BANDWIDTH" Constraint="20Mbit/s"/>
+			</ActionSet>				
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="4">
+		<Info>
+			<Description>Questa è una descrizione REQ4</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="*"/>
+			<fd:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>							
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*" />
+			</fd:DaysAndTimes>
+			<fd:Documents>
+				<fd:Document Type="PDF"></fd:Document>
+				<fd:Document Type="DOCX"></fd:Document>
+			</fd:Documents>
+			<fd:GeoPosition Country="Europa"/>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpDstVer4"/>
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+			</ActionSet>
+			<ActionSet Order="2">
+				<ActionRequired Action="REMARK_PACKET" Constraint="Priority" UpdateValue="3"></ActionRequired>
+			</ActionSet>					
+		</Actions>
+	</Requirement>
+	<Requirement Req_ID="5">
+		<Info>
+			<Description>Questa è una descrizione REQ9</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:IpDst Version="ipv4" Address="10.0.5.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="outside"/>
+			<fd:Proto TypeProtocol="HTTP"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://example.com/provapage.html"/>
+			</fd:Urls>							
+			<fd:Domains>
+				<fd:Domain  DomainValue="google.com"/>
+			</fd:Domains>		
+			<fd:VlanTag>*</fd:VlanTag>		
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+				<fd:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+			</fd:DaysAndTimes>					
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="AUTHN_TRAFFIC"/>
+				<ActionRequired Action="PROTECT_CONFIDENTIALITY"/>
+				<ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+			</ActionSet>
+			<ActionSet Order="2">
+				<ActionRequired Action="FORWARD_TRAFFIC" Constraint="IpDstVer4" UpdateValue="10.2.3.5"></ActionRequired>
+			</ActionSet>	
+		</Actions>
+	</Requirement>
+	
+	<Requirement Req_ID="6">
+		<Info>
+			<Description>Questa è una descrizione REQ10</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc 	Version="ipv4" Address="10.0.3.21"/>
+			<fd:IpDst 	Version="ipv4" Address="172.2.3.4"/>
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Sunday"/>
+			</fd:DaysAndTimes>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="VPN_TRAFFIC" Constraint="SSL_RSA_WITH_NULL_SHA"/>
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="7">
+		<Info>
+			<Description>Questa è una descrizione REQ4</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="1-10500" RangeSetting="outside"/>
+			<fd:Proto TypeProtocol="*"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+			</fd:Urls>				
+			<fd:Medias>
+				<fd:Media Type="IMAGES" Regex="*.jpg"/>
+			</fd:Medias>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet>
+				<ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES128"/>
+			</ActionSet>	
+		</Actions>
+	</Requirement>
+	
+		<Requirement Req_ID="8">
+		<Info>
+			<Description>Questa è una descrizione REQ8 - 
+				Requisito consistente dal punto di vista della quantià di azioni richieste.
+			</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:8888"/>
+			<fd:IpDst Version="ipv6" Address="2001:db8:3333:4444:5555:6666:7777:9999"/>
+			<fd:PortSrc Range="15000-35000" RangeSetting="inside"/>	
+			<fd:PortDst Range="1-10500" 	RangeSetting="outside"/>
+			<fd:Proto TypeProtocol="*"/>
+			<fd:Domains>
+				<fd:Domain DomainValue="www.sitedomain.com"/>
+			</fd:Domains>
+			<fd:VlanTag>tagTraffic</fd:VlanTag>			
+			<fd:Applications>
+				<fd:Application Type="MESSENGER"/>
+			</fd:Applications>
+			<fd:Body>Specific content inside the body</fd:Body>
+			<fd:GeoPosition Country="Italia"/>
+		</fd:Fields>
+		<Actions>
+			<ActionSet>
+				<ActionRequired Action="ENCRYPT_TRAFFIC" Constraint="AES-128"/>
+			</ActionSet>
+			<ActionSet>
+				<ActionRequired Action="FORWARD_TRAFFIC" Constraint="IpDstVer4" UpdateValue="10.2.2.3/24"/>
+			</ActionSet>
+			<ActionSet>
+				<ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="NewTagForTraffic"/>
+			</ActionSet>			
+			<ActionSet>
+				<ActionRequired Action="LIMIT_BANDWIDTH" Constraint="10Mbit/s"/>
+			</ActionSet>  
+			<!-- Azioni inserite volutamente in concorrenza, se cosi non fosse raggiungerebbe facilmente > 10^7  -->
+			<ActionSet Concurrent="true">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpDstVer6"/>
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+				<ActionRequired Action="ALERT"/>
+				<ActionRequired Action="COUNT"/>	
+			</ActionSet>
+			<ActionSet>
+				<ActionRequired Action="ANTIVIRUS"/>
+			</ActionSet>
+			<ActionSet>
+				<ActionRequired Action="STORE_PACKET"/>
+			</ActionSet>	
+		</Actions>
+	</Requirement>
+	
+
+
+</RequirementsList>

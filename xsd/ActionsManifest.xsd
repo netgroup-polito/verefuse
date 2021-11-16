@@ -1,0 +1,61 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:tns="http://www.verifuse.polito.it/actionsmanifest"
+        xmlns:sup="http://www.verifuse.polito.it/filesupport"
+        targetNamespace="http://www.verifuse.polito.it/actionsmanifest"
+        elementFormDefault="qualified">
+
+  	<import namespace="http://www.verifuse.polito.it/filesupport" 	schemaLocation="fileSupport.xsd"/>  	  	
+
+
+	<element name="ActionsManifest">
+		<complexType>
+			<sequence>
+				<element name="ActionSupport" minOccurs="1" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="Support" type="string" 	minOccurs="0" maxOccurs="unbounded"></element>						
+						</sequence>
+						<attribute name="Action" 		type="tns:typeAction" 	use="required"></attribute>
+						<attribute name="importSuite" 	type="string" 			use="optional"></attribute>
+					</complexType>
+					
+				</element>
+			</sequence>	
+		</complexType>
+		<unique name="uniqueAction">
+			<selector xpath="tns:ActionSupport"/>
+			<field xpath="@Action" />
+		</unique>
+	</element>
+	
+	<simpleType name="typeAction">
+		<restriction base="string">
+			<enumeration value="ALLOW_TRAFFIC"></enumeration>
+			<enumeration value="DENY_TRAFFIC"></enumeration>
+			<enumeration value="LOG_TRAFFIC"></enumeration>
+			<enumeration value="ALERT"></enumeration>
+			<enumeration value="COUNT"></enumeration>
+			<enumeration value="ENCRYPT_TRAFFIC"></enumeration>	
+			<enumeration value="AUTHN_TRAFFIC"></enumeration>		
+			<enumeration value="PROTECT_CONFIDENTIALITY"></enumeration>
+			<enumeration value="PROTECT_INTEGRITY"></enumeration>
+			<enumeration value="LIMIT_BANDWIDTH"></enumeration>	
+			<enumeration value="FORWARD_TRAFFIC"></enumeration>
+			<enumeration value="STORE_PACKET"></enumeration>
+			<enumeration value="NAT_TRAFFIC"></enumeration>
+			<enumeration value="REMARK_PACKET"></enumeration>
+			<enumeration value="ANTIVIRUS"></enumeration>	
+			<enumeration value="IDS"></enumeration>			
+			<enumeration value="IPS"></enumeration>		
+			<enumeration value="PROXY"></enumeration>			
+			<enumeration value="PROTECT_DDOS"></enumeration>
+			<enumeration value="SCANNING"></enumeration>	
+			<enumeration value="PROTECT_TRACKING"></enumeration>
+			<enumeration value="PROTECT_IDENTITY"></enumeration>									
+			<enumeration value="VPN_TRAFFIC"></enumeration>
+		</restriction>
+	</simpleType>
+
+</schema>

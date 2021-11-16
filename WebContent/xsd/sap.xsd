@@ -1,0 +1,105 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:nsf="http://www.verifuse.polito.it/nsfcatalog"
+        xmlns:tns="http://www.verifuse.polito.it/rest/sap"
+        targetNamespace="http://www.verifuse.polito.it/rest/sap"
+        elementFormDefault="qualified">
+
+	<annotation>
+      	<documentation xml:lang="en">
+	      	This schema was created to represent the answers to the REST API by the SAP module.
+    	</documentation>
+  	</annotation>
+  	
+  	<import namespace="http://www.verifuse.polito.it/capabilities" schemaLocation="../../xsd/capabilities.xsd"/>
+  	<import namespace="http://www.verifuse.polito.it/nsfcatalog"   schemaLocation="../../xsd/NSFCatalog.xsd"/>
+  	
+  	<!-- Definition of the SAP element -->
+  	<element name="SAPResponse">
+	  	<complexType>
+			<sequence>
+				<element name="self" 				  type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="capabilitiesInstances" type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="hosts" 				  type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="nsfs"		     	  type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="result"			 	  type="anyURI" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</complexType>
+	</element>
+  	
+  	<!-- Definition of the CapabilitiesInstances element -->
+  	<element name="CapabilitiesInstancesResponse">
+	  	<complexType>
+			<sequence>
+				<element name="totalPages" 		type="positiveInteger"/>
+				<element name="page" 	   		type="positiveInteger"/>
+				<element name="next" 	   		type="anyURI" 		     minOccurs="0"/>
+				<element ref="tns:CapabilityInstanceResponse"			 minOccurs="1" maxOccurs="20"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<!-- Definition of the CapabilityInstance element -->
+  	<element name="CapabilityInstanceResponse">
+	  	<complexType>
+			<sequence>
+				<element name="self" type="anyURI" minOccurs="0"/>
+			</sequence>
+			<attribute name="CapabilityID" type="string" 		  use="required"/>
+			<attribute name="Instance"     type="positiveInteger" use="required"/>
+		</complexType>	
+	</element>
+		
+	<!-- Definition of the Hosts element -->
+	<element name="HostsResponse">
+	  	<complexType>
+	  		<sequence>
+				<element name="totalPages" type="positiveInteger"/>
+				<element name="page" 	   type="positiveInteger"/>
+				<element name="next"       type="anyURI" minOccurs="0"/>
+				<element ref="tns:HostResponse"    minOccurs="0" maxOccurs="20"/>
+	  		</sequence>
+	  	</complexType>
+  	</element>
+  	
+  	<!-- Definition of the Host element -->
+	<element name="HostResponse">
+	  	<complexType>
+	  		<sequence>
+				<element name="self" type="anyURI" minOccurs="0"/>
+	  			<element name="SupportedVNF" type="string" minOccurs="0" maxOccurs="unbounded"/>
+	  		</sequence>
+			<attribute name="HostID" 	 type="string"  use="required"/>
+			<attribute name="cpu" 	 	 type="integer" use="required"/>
+			<attribute name="ram" 		 type="integer" use="required"/>
+			<attribute name="disk" 		 type="integer" use="required"/>
+			<attribute name="bandwidth"  type="integer" use="required"/>
+	  	</complexType>
+  	</element>
+  	
+  	<!-- Definition of the NSFs element -->
+	<element name="NSFsResponse">
+	  	<complexType>
+	  		<sequence>
+				<element name="totalPages" type="positiveInteger"/>
+				<element name="page" 	   type="positiveInteger"/>
+				<element name="next" 	   type="anyURI" minOccurs="0"/>
+				<element ref="tns:NSFResponse"     minOccurs="0" maxOccurs="20"/>
+	  		</sequence>
+	  	</complexType>
+  	</element>
+  	
+  	<!-- Definition of the NSF element -->
+	<element name="NSFResponse">
+	  	<complexType>
+	  		<sequence>
+				<element name="self" 				type="anyURI" 				   minOccurs="0"/>
+	  			<element name="GeneralInfo" 		type="nsf:GeneralInfo"	 	   minOccurs="1" maxOccurs="1"/>
+				<element name="SoftwareInfo" 		type="nsf:SoftwareInfo" 	   minOccurs="1" maxOccurs="1"/>
+				<element name="HardwareInfo" 		type="nsf:HardwareInfo" 	   minOccurs="1" maxOccurs="1"/>
+				<element name="Functionality"       type="nsf:Functionality"	   minOccurs="1" maxOccurs="1"/>
+			</sequence>
+			<attribute name="NSF_ID" 	type="string"	use="required"/>
+		</complexType>  	
+	</element>
+</schema>

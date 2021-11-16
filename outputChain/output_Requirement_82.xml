@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_82">
+        <Solution Sol_ID="SOL_0" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_1" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_2" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_3" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_4" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_5" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortSrc Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="TCP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

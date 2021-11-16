@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Fields
+	xmlns="http://www.verifuse.polito.it/fields"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.verifuse.polito.it/fields Fields.xsd">
+
+		<IpSrc Version="ipv4" Address="*"/>
+		<IpDst Version="ipv6" Address="10.0.3.21/24"/>
+		<PortSrc Range="100-10500" RangeSetting="inside"/>
+		<PortDst Range="100-10500" RangeSetting="inside"/>
+		<Proto TypeProtocol="UDP"/>
+		<Urls>
+			<Url URLvalue="http://localhost.it/page1.html"/>
+		</Urls>
+		<Domains>
+			<Domain DomainValue="google.com"/>
+		</Domains>
+			
+		<DaysAndTimes TimeZone="TMZ">
+			<DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+			<DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+		</DaysAndTimes>
+		
+		<Documents>
+			<Document Type="PDF" Regex="myregex_define"></Document>
+			<Document Type="DOC"></Document>
+		</Documents>
+		<WebPages>
+			<WebPage Type="HTML"></WebPage>
+		</WebPages>
+		<GeoPosition Country="Italia"/>
+		<Displace>10.2.3.4:5000</Displace>
+		<RemarkField FieldName="IpSrcVer4" Value="12.3.2.1"></RemarkField>
+
+
+</Fields>

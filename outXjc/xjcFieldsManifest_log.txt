@@ -1,0 +1,8 @@
+analisi di uno schema in corso...
+compilazione di uno schema in corso...
+it/polito/verifuse/jaxb/fieldsmanifest/ConfigType.java
+it/polito/verifuse/jaxb/fieldsmanifest/EnumField.java
+it/polito/verifuse/jaxb/fieldsmanifest/FieldsManifest.java
+it/polito/verifuse/jaxb/fieldsmanifest/ObjectFactory.java
+it/polito/verifuse/jaxb/fieldsmanifest/SupportType.java
+it/polito/verifuse/jaxb/fieldsmanifest/package-info.java

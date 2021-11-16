@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="."  name="neo4j-build">
+	<description>
+		Script for Controlling Neo4j (to be imported in main build)
+	</description>
+
+	
+	<property environment="env"/>
+	<condition property="neo4j.location" value="${env.NEO4J_HOME}" else="/opt/neo4j-community-3.2.3">
+	    <isset property="env.NEO4J_HOME" />
+	</condition>
+	
+	<target name="start-neo4j_linux" description="start NEO4J server">
+		<echo>${neo4j.location}/bin/neo4j</echo>
+		<exec executable="/bin/bash">
+			<arg value="${neo4j.location}/bin/neo4j"/>
+			<arg value="start"/>
+		</exec>
+	</target>
+	
+	<target name="start-neo4j_windows" description="start NEO4J server">
+		 <exec executable="cmd">
+		    <arg value="/c"/>
+			<arg value="${neo4j.location}/bin/neo4j"/>
+			<arg value="start"/>
+		</exec>
+	</target>
+
+	<target name="stop-neo4j_linux" description="stop NEO4J server">
+		<exec executable="/bin/bash">
+			<arg value="${neo4j.location}/bin/neo4j"/>
+			<arg value="stop"/>
+		</exec>
+	</target>
+	
+	<target name="stop-neo4j_windows" description="stop NEO4J server">
+		<exec executable="cmd">
+		    <arg value="/c"/>
+			<arg value="${neo4j.location}/bin/neo4j"/>
+			<arg value="stop"/>
+		</exec>
+	</target>
+	
+	<target name="clear-and-restart-neo4j" description="clear NEO4J DB and start NEO4J server">
+		<antcall target="stop-neo4j_linux"/>
+		<sleep seconds="3"/>
+		<delete dir="${neo4j.location}/data/databases/graph.db" />
+		<sleep seconds="5"/>
+		<antcall target="start-neo4j_linux"/>
+	</target>
+		
+</project>

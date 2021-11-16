@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_9">
+        <Solution Sol_ID="SOL_0" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="OUTSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="HTTP" ConfigField="CONF_DEC"/>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[*]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                        <DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_1" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="OUTSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="HTTP" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_MAKE_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <VlanTag ConfigField="CONF_DEC" Tag="[*]"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+                        <DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_2" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="OUTSIDE" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_3" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="HTTP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF8"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_4" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="OUTSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="HTTP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

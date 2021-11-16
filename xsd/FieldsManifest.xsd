@@ -1,0 +1,73 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:tns="http://www.verifuse.polito.it/fieldsmanifest"
+        targetNamespace="http://www.verifuse.polito.it/fieldsmanifest"
+        elementFormDefault="qualified">
+
+	<element name="FieldsManifest">
+		<complexType>
+			<sequence >
+				<element name="Field" minOccurs="1" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="Supports" type="tns:SupportType" minOccurs="0" maxOccurs="1"></element>
+						</sequence>
+						<attribute name="Type" 			type="tns:enumField" 	use="required"></attribute>
+						<attribute name="TypeConfig" 	type="tns:configType" 	default="CONF_DEC"></attribute>
+						<attribute name="importSuite" 	type="string" 			use="optional"></attribute>
+					</complexType>
+					<unique name="uniqueSupportElement">
+						<selector xpath="tns:Supports/tns:Support"></selector>
+						<field xpath="."></field>
+					</unique>
+				</element>				
+			</sequence>	
+		</complexType>
+	</element>
+		
+	<complexType name="SupportType">
+		<sequence>
+			<element name="Support" type="string" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	
+	<simpleType name="enumField">
+		<restriction base="string">
+			<enumeration value="IpSrcVer4"/>
+			<enumeration value="IpDstVer4"/>
+			<enumeration value="IpSrcVer6"/>
+			<enumeration value="IpDstVer6"/>			
+			<enumeration value="PortSrc"/>
+			<enumeration value="PortDst"/>
+			<enumeration value="Proto"/>
+			<enumeration value="Urls"/>
+			<enumeration value="Domains" />
+			<enumeration value="VlanTag" />
+			<enumeration value="DaysAndTimes"/>
+			<enumeration value="Documents"	/>
+			<enumeration value="Scripts"/>
+			<enumeration value="WebPages"/>
+			<enumeration value="Applications" />
+			<enumeration value="Medias"/>
+			<enumeration value="Advertisings"/>
+			<enumeration value="Emails"	/>
+			<enumeration value="Priority"/>
+			<enumeration value="Bandwith"/>
+			<enumeration value="Body"/>
+			<enumeration value="GeoPosition"/>
+			<enumeration value="Bandwith"/>
+			<enumeration value="Displace"/>
+			<enumeration value="RemarkField"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="configType">
+		<restriction base="string">
+			<enumeration value="CONF_DEC"></enumeration>
+			<enumeration value="NOT_CONF_MAKE_DEC"></enumeration>
+			<enumeration value="NOT_CONF_NOT_DEC"></enumeration>
+		</restriction>
+	</simpleType>
+
+</schema>

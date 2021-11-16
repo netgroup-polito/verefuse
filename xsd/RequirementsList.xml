@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequirementsList
+	xmlns="http://www.verifuse.polito.it/requirementslist"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:fd="http://www.verifuse.polito.it/fields"
+	xmlns:ac="http://www.verifuse.polito.it/actions"
+	xsi:schemaLocation="http://www.verifuse.polito.it/requirementslist RequirementsList.xsd">
+	
+	 	
+
+	<Requirement Req_ID="1">
+		<Info>
+			<Description>Questa è una descrizione REQ1</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://example.com/provapage.html"/>
+			</fd:Urls>							
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>  
+				<fd:DayAndTime Day="Friday" />				
+				<fd:DayAndTime Day="Monday" TimeStart="01:10:33" TimeEnd="12:15:22"/>								
+			</fd:DaysAndTimes>
+			<fd:Documents>
+				<fd:Document Type="PDF" Regex="myregex_potential_malicius"/>
+				<fd:Document Type="DOCX"/>
+			</fd:Documents>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpSrcVer4"/>  
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+				<ActionRequired Action="ALERT"/>
+			</ActionSet>	
+			<ActionSet Order="3" Concurrent="true">
+				<ActionRequired Action="DENY_TRAFFIC"/>
+				<ActionRequired Action="COUNT"/>
+			</ActionSet>
+			<ActionSet Order="2">
+				<ActionRequired Action="PROTECT_INTEGRITY" Constraint="SHA2"/>
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="2">
+		<Info>
+			<Description>Questa è una descrizione REQ2</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortSrc Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="TCP"></fd:Proto>
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*" />  
+			</fd:DaysAndTimes>							
+			<fd:Documents>
+				<fd:Document Type="PDF"></fd:Document>
+				<fd:Document Type="DOCX"></fd:Document>
+			</fd:Documents>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+				<ActionRequired Action="ALERT"></ActionRequired>
+			</ActionSet>	
+			<ActionSet Order="2" >
+				<ActionRequired Action="STORE_PACKET"></ActionRequired>				
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="3">
+		<Info>
+			<Description>Questa è una descrizione REQ3</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="*"/>
+			<fd:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>
+			<fd:VlanTag>3</fd:VlanTag>
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*" />
+			</fd:DaysAndTimes>
+			<fd:Documents>
+				<fd:Document Type="PDF"></fd:Document>
+				<fd:Document Type="DOCX"></fd:Document>
+			</fd:Documents>
+			<fd:GeoPosition Country="Europa"/>		
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpDstVer4"/>
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+			</ActionSet>
+			<ActionSet Order="2">
+				<ActionRequired Action="REMARK_PACKET" Constraint="VlanTag" UpdateValue="newtagVlan"></ActionRequired>
+			</ActionSet>	
+			<ActionSet Order="3">
+				<ActionRequired Action="ANTIVIRUS"></ActionRequired>
+			</ActionSet>					
+		</Actions>
+	</Requirement>
+	
+	<Requirement Req_ID="4">
+		<Info>
+			<Description>Questa è una descrizione REQ4</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="outside"/>
+			<fd:Proto TypeProtocol="UDP"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://mywebsitedomain.com/mypersonalpage.html"/>
+			</fd:Urls>				
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+				<fd:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+			</fd:DaysAndTimes>
+			<fd:Medias>
+				<fd:Media Type="IMAGES" Regex="*.jpg"/>
+			</fd:Medias>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="AUTHN_TRAFFIC"/>
+				<ActionRequired Action="PROTECT_CONFIDENTIALITY"/>
+				<ActionRequired Action="PROTECT_INTEGRITY"/>
+			</ActionSet>	
+		</Actions>
+	</Requirement>
+	
+	<Requirement Req_ID="5">
+		<Info>
+			<Description>Questa è una descrizione REQ5</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="8080-9000" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*"/>
+			</fd:DaysAndTimes>
+			<fd:Displace>80.25.36.150:4000</fd:Displace>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="FORWARD_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="Displace"/>
+					</FieldsParametric>
+				</ActionRequired>
+			</ActionSet>	
+			<ActionSet Order="2">
+				<ActionRequired Action="LIMIT_BANDWIDTH"/>
+			</ActionSet>	
+			
+		</Actions>
+	</Requirement>
+	
+	<Requirement Req_ID="6">
+		<Info>
+			<Description>Questa è una descrizione REQ1</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://example.com/provapage.html"/>
+			</fd:Urls>							
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>  
+				<fd:DayAndTime Day="Friday" />				
+				<fd:DayAndTime Day="Monday" TimeStart="01:10:33" TimeEnd="12:15:22"/>								
+			</fd:DaysAndTimes>
+			<fd:Documents>
+				<fd:Document Type="PDF" Regex="myregex"/>
+				<fd:Document Type="DOCX"/>
+			</fd:Documents>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="DENY_TRAFFIC"/>
+				<ActionRequired Action="COUNT"/>
+				<ActionRequired Action="ALERT"/>
+				
+			</ActionSet>
+			
+		</Actions>
+	</Requirement>
+<!-- 
+	<Requirement Req_ID="7">
+		<Info>
+			<Description>Questa è una descrizione REQ2</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortSrc Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="TCP"/>
+						
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*" />  
+			</fd:DaysAndTimes>							
+			<fd:Documents>
+				<fd:Document Type="PDF"></fd:Document>
+				<fd:Document Type="DOCX"></fd:Document>
+			</fd:Documents>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpSrcVer4"/>
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+				<ActionRequired Action="ALERT"></ActionRequired>
+			</ActionSet>	
+			<ActionSet Order="2" >
+				<ActionRequired Action="STORE_PACKET"></ActionRequired>				
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+	<Requirement Req_ID="8">
+		<Info>
+			<Description>Questa è una descrizione REQ3</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="*"/>
+			<fd:IpDst Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="UDP"/>							
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*" />
+			</fd:DaysAndTimes>
+			<fd:Documents>
+				<fd:Document Type="PDF"></fd:Document>
+				<fd:Document Type="DOCX"></fd:Document>
+			</fd:Documents>
+			<fd:GeoPosition Country="Europa"/>
+			<fd:RemarkField Value="10.2.3.4" FieldName="IpSrcVer4"/>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="LOG_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="IpDstVer4"/>
+						<Field Ref="PortDst"/>
+					</FieldsParametric>	
+				</ActionRequired>
+			</ActionSet>
+			<ActionSet Order="2">
+				<ActionRequired Action="REMARK_PACKET">
+					<FieldsParametric>
+						<Field Ref="RemarkField"/>
+					</FieldsParametric>
+				</ActionRequired>
+			</ActionSet>					
+		</Actions>
+	</Requirement>
+	<Requirement Req_ID="9">
+		<Info>
+			<Description>Questa è una descrizione REQ4</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="outside"/>
+			<fd:Proto TypeProtocol="TCP"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://example.com/provapage.html"/>
+			</fd:Urls>							
+			<fd:Domains>
+				<fd:Domain  DomainValue="google.com"/>
+			</fd:Domains>				
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Monday" TimeStart="23:10:33" TimeEnd="12:10:22"/>
+				<fd:DayAndTime Day="Friday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+			</fd:DaysAndTimes>
+			<fd:Medias>
+				<fd:Media Type="AUDIO"/>
+				<fd:Media Type="IMAGES"/>
+			</fd:Medias>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="AUTHN_TRAFFIC"/>
+				<ActionRequired Action="PROTECT_CONFIDENTIALITY"/>
+				<ActionRequired Action="PROTECT_INTEGRITY"/>
+			</ActionSet>	
+		</Actions>
+	</Requirement>
+	
+	<Requirement Req_ID="10">
+		<Info>
+			<Description>Questa è una descrizione REQ5</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="8080-9000" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="TCP"/>
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="*"/>
+			</fd:DaysAndTimes>
+			<fd:Displace>80.25.36.150:4000</fd:Displace>
+		</fd:Fields>
+		<Actions>	
+			<ActionSet Order="1">
+				<ActionRequired Action="FORWARD_TRAFFIC">
+					<FieldsParametric>
+						<Field Ref="Displace"/>
+					</FieldsParametric>
+				</ActionRequired>
+			</ActionSet>	
+			<ActionSet Order="2">
+				<ActionRequired Action="LIMIT_BANDWIDTH"/>
+			</ActionSet>	
+			
+		</Actions>
+	</Requirement>
+	-->
+
+
+</RequirementsList>

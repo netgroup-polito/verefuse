@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_56">
+        <Solution Sol_ID="SOL_0" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_6" Address="*" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_6" Address="2001:db8:3333:4444:5555:6666:7777:8888" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="ICMP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF6"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_1" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="STORE_PACKET" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

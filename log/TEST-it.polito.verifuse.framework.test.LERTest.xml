@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="cosimo-VirtualBox" name="it.polito.verifuse.framework.test.LERTest" skipped="0" tests="10" time="3.149" timestamp="2021-05-20T19:45:45">
+  <properties>
+    <property name="env.DESKTOP_SESSION" value="xubuntu"></property>
+    <property name="file.encoding.pkg" value="sun.io"></property>
+    <property name="java.home" value="/usr/lib/jvm/jdk1.8.0_261/jre"></property>
+    <property name="env.GDM_LANG" value="it"></property>
+    <property name="env.DISPLAY" value=":0.0"></property>
+    <property name="env.LS_COLORS" value="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"></property>
+    <property name="debug" value="off"></property>
+    <property name="env.XDG_VTNR" value="7"></property>
+    <property name="pckg.jaxb" value="it.polito.verifuse.jaxb"></property>
+    <property name="env.GLADE_CATALOG_PATH" value=":"></property>
+    <property name="env.XDG_GREETER_DATA_DIR" value="/var/lib/lightdm-data/cosimo"></property>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/jdk1.8.0_261/jre/lib/endorsed"></property>
+    <property name="env.LOGNAME" value="cosimo"></property>
+    <property name="debuglevel" value="lines,vars,source"></property>
+    <property name="src.dir" value="/home/cosimo/workspace/verifuse/src"></property>
+    <property name="env.XDG_SEAT" value="seat0"></property>
+    <property name="env.SESSION_MANAGER" value="local/cosimo-VirtualBox:@/tmp/.ICE-unix/1896,unix/cosimo-VirtualBox:/tmp/.ICE-unix/1896"></property>
+    <property name="sun.os.patch.level" value="unknown"></property>
+    <property name="java.vendor.url" value="http://java.oracle.com/"></property>
+    <property name="env.XDG_SEAT_PATH" value="/org/freedesktop/DisplayManager/Seat0"></property>
+    <property name="java.version" value="1.8.0_261"></property>
+    <property name="eclipse.pdebuild.home" value="/opt/eclipse/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/.//"></property>
+    <property name="env.OXYGEN_DISABLE_INNER_SHADOWS_HACK" value="1"></property>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"></property>
+    <property name="env.LANGUAGE" value="it"></property>
+    <property name="xml.dir" value="/home/cosimo/workspace/verifuse/xmlInputFile"></property>
+    <property name="env.GDK_SCALE" value="1"></property>
+    <property name="env.XDG_MENU_PREFIX" value="xfce-"></property>
+    <property name="ant.project.invoked-targets" value="testFramework"></property>
+    <property name="env.XDG_DATA_DIRS" value="/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share"></property>
+    <property name="schema.fields" value="Fields.xsd"></property>
+    <property name="user.name" value="cosimo"></property>
+    <property name="env.LANG" value="it_IT.UTF-8"></property>
+    <property name="outputChain.dir" value="/home/cosimo/workspace/verifuse/outputChain"></property>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"></property>
+    <property name="sun.jnu.encoding" value="UTF-8"></property>
+    <property name="env.DBUS_SESSION_BUS_ADDRESS" value="unix:path=/run/user/1000/bus"></property>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"></property>
+    <property name="pckg.manifestvnfs" value="it.polito.verifuse.jaxb.manifestvnfs"></property>
+    <property name="pckg.fieldsmanifest" value="it.polito.verifuse.jaxb.fieldsmanifest"></property>
+    <property name="lib.dir" value="/home/cosimo/workspace/verifuse/lib"></property>
+    <property name="java.specification.name" value="Java Platform API Specification"></property>
+    <property name="env.GLADE_PIXMAP_PATH" value=":"></property>
+    <property name="user.timezone" value=""></property>
+    <property name="env.LESSOPEN" value="| /usr/bin/lesspipe %s"></property>
+    <property name="neo4j.location" value="/opt/neo4j-community-3.5.23"></property>
+    <property name="path.separator" value=":"></property>
+    <property name="file.encoding" value="UTF-8"></property>
+    <property name="ant.project.default-target" value="run"></property>
+    <property name="env.HOME" value="/home/cosimo"></property>
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner it.polito.verifuse.framework.test.LERTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter,/home/cosimo/workspace/verifuse/log/TEST-it.polito.verifuse.framework.test.LERTest.txt formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/cosimo/workspace/verifuse/log/TEST-it.polito.verifuse.framework.test.LERTest.xml crashfile=/home/cosimo/workspace/verifuse/junitvmwatcher3831609463245631836.properties propsfile=/home/cosimo/workspace/verifuse/junit4266826118530703885.properties"></property>
+    <property name="ant.file.verifuse" value="/home/cosimo/workspace/verifuse/build.xml"></property>
+    <property name="ant.file" value="/home/cosimo/workspace/verifuse/build.xml"></property>
+    <property name="env._" value="./eclipse"></property>
+    <property name="java.io.tmpdir" value="/tmp"></property>
+    <property name="user.language" value="it"></property>
+    <property name="pckg.location.actions" value="it/polito/verifuse/jaxb/actions"></property>
+    <property name="pckg.location.requirementslist" value="it/polito/verifuse/jaxb/requirementslist"></property>
+    <property name="line.separator" value="
+"></property>
+    <property name="env.SSH_AGENT_PID" value="1878"></property>
+    <property name="env.NEO4J_HOME" value="/opt/neo4j-community-3.5.23"></property>
+    <property name="report.dir" value="/home/cosimo/workspace/verifuse/log"></property>
+    <property name="env.GLADE_MODULE_PATH" value=":"></property>
+    <property name="java.vm.info" value="mixed mode"></property>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"></property>
+    <property name="schema.chainfunctionality" value="ChainFunctionality.xsd"></property>
+    <property name="env.COLORTERM" value="truecolor"></property>
+    <property name="root.location" value="/home/cosimo/workspace/verifuse"></property>
+    <property name="env.GUROBI_HOME" value="/opt/gurobi811/linux64"></property>
+    <property name="pckg.node" value="it.polito.verifuse.jaxb.node"></property>
+    <property name="schema.actionsmanifest" value="ActionsManifest.xsd"></property>
+    <property name="pckg.location.actionsmanifest" value="it/polito/verifuse/jaxb/actionsmanifest"></property>
+    <property name="ant.file.neo4j-build" value="/home/cosimo/workspace/verifuse/neo4j-build.xml"></property>
+    <property name="env.GDMSESSION" value="xubuntu"></property>
+    <property name="eclipse.pdebuild.templates" value="/opt/eclipse/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/templates//"></property>
+    <property name="env.QT_ACCESSIBILITY" value="1"></property>
+    <property name="env.XDG_SESSION_DESKTOP" value="xubuntu"></property>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"></property>
+    <property name="pckg.fields" value="it.polito.verifuse.jaxb.fields"></property>
+    <property name="env.VTE_VERSION" value="5202"></property>
+    <property name="pckg.location.tools" value="it/polito/verifuse/jaxb/tools"></property>
+    <property name="env.GDK_CORE_DEVICE_EVENTS" value="1"></property>
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.6 compiled on June 29 2015"></property>
+    <property name="env.XDG_SESSION_TYPE" value="x11"></property>
+    <property name="env.WINDOWID" value="67108867"></property>
+    <property name="gen-src.dir" value="/home/cosimo/workspace/verifuse/gen-src"></property>
+    <property name="env.XDG_SESSION_PATH" value="/org/freedesktop/DisplayManager/Session0"></property>
+    <property name="pckg.location.fields" value="it/polito/verifuse/jaxb/fields"></property>
+    <property name="os.name" value="Linux"></property>
+    <property name="java.specification.vendor" value="Oracle Corporation"></property>
+    <property name="schema.node" value="node.xsd"></property>
+    <property name="ant.file.type.neo4j-build" value="file"></property>
+    <property name="env.TERM" value="xterm-256color"></property>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"></property>
+    <property name="pckg.chainfunctionality" value="it.polito.verifuse.jaxb.chainfunctionality"></property>
+    <property name="java.library.path" value=":/opt/gurobi811/linux64/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"></property>
+    <property name="env.PATH" value="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/gurobi811/linux64/bin:/usr/lib/jvm/jdk1.8.0_261/bin"></property>
+    <property name="eclipse.pdebuild.scripts" value="/opt/eclipse/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/scripts//"></property>
+    <property name="env.LESSCLOSE" value="/usr/bin/lesspipe %s %s"></property>
+    <property name="ant.java.version" value="1.8"></property>
+    <property name="basedir" value="/home/cosimo/workspace/verifuse"></property>
+    <property name="java.class.version" value="52.0"></property>
+    <property name="env.SHLVL" value="1"></property>
+    <property name="schema.actions" value="Actions.xsd"></property>
+    <property name="env.LD_LIBRARY_PATH" value=":/opt/gurobi811/linux64/lib"></property>
+    <property name="pckg.actionsmanifest" value="it.polito.verifuse.jaxb.actionsmanifest"></property>
+    <property name="ant.home" value="/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327"></property>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk1.8.0_261/jre/lib/amd64"></property>
+    <property name="build.dir" value="/home/cosimo/workspace/verifuse/build"></property>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"></property>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"></property>
+    <property name="env.USER" value="cosimo"></property>
+    <property name="env.GRB_LICENSE_FILE" value="/opt/gurobi811/linux64/gurobi.lic"></property>
+    <property name="ant.project.name" value="verifuse"></property>
+    <property name="schema.dir" value="/home/cosimo/workspace/verifuse/xsd"></property>
+    <property name="java.vm.specification.version" value="1.8"></property>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"></property>
+    <property name="pckg.location.filesupport" value="it/polito/verifuse/jaxb/filesupport"></property>
+    <property name="sun.cpu.isalist" value=""></property>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/jdk1.8.0_261/jre/lib/ext:/usr/java/packages/lib/ext"></property>
+    <property name="pckg.location.manifestvnfs" value="it/polito/verifuse/jaxb/manifestvnfs"></property>
+    <property name="os.version" value="5.4.0-73-generic"></property>
+    <property name="env.QT_QPA_PLATFORMTHEME" value="gtk2"></property>
+    <property name="user.home" value="/home/cosimo"></property>
+    <property name="env.XDG_CURRENT_DESKTOP" value="XFCE"></property>
+    <property name="pckg.actions" value="it.polito.verifuse.jaxb.actions"></property>
+    <property name="java.vm.vendor" value="Oracle Corporation"></property>
+    <property name="env.GTK_OVERLAY_SCROLLING" value="0"></property>
+    <property name="env.JAVA_HOME" value="/usr/lib/jvm/jdk1.8.0_261"></property>
+    <property name="env.XDG_SESSION_ID" value="c2"></property>
+    <property name="env.XAUTHORITY" value="/home/cosimo/.Xauthority"></property>
+    <property name="user.dir" value="/home/cosimo/workspace/verifuse"></property>
+    <property name="schema.filesupport" value="fileSupport.xsd"></property>
+    <property name="pckg.jaxb.location" value="it/polito/verifuse/jaxb"></property>
+    <property name="env.PWD" value="/opt/eclipse"></property>
+    <property name="env.LIBOVERLAY_SCROLLBAR" value="0"></property>
+    <property name="test.dir" value="/home/cosimo/workspace/verifuse/test"></property>
+    <property name="env.CLUTTER_BACKEND" value="x11"></property>
+    <property name="sun.cpu.endian" value="little"></property>
+    <property name="ant.file.type.verifuse" value="file"></property>
+    <property name="schema.tools" value="tools.xsd"></property>
+    <property name="java.vm.version" value="25.261-b12"></property>
+    <property name="java.class.path" value="/home/cosimo/workspace/verifuse/src:/home/cosimo/workspace/verifuse/gen-src:/home/cosimo/workspace/verifuse/build:/home/cosimo/workspace/verifuse/build/test-classes:/home/cosimo/workspace/verifuse/xsd:/home/cosimo/workspace/verifuse/test:/home/cosimo/workspace/verifuse/lib/FastInfoset-1.2.13.jar:/home/cosimo/workspace/verifuse/lib/activation-1.1.jar:/home/cosimo/workspace/verifuse/lib/annotations-2.0.1.jar:/home/cosimo/workspace/verifuse/lib/ant-1.6.5.jar:/home/cosimo/workspace/verifuse/lib/aopalliance-repackaged-2.5.0-b32.jar:/home/cosimo/workspace/verifuse/lib/apiguardian-api-1.1.0.jar:/home/cosimo/workspace/verifuse/lib/cdi-api-1.1.jar:/home/cosimo/workspace/verifuse/lib/cdi-api-1.2.jar:/home/cosimo/workspace/verifuse/lib/codemodel-2.2.11.jar:/home/cosimo/workspace/verifuse/lib/codemodel-2.6.jar:/home/cosimo/workspace/verifuse/lib/commons-lang-2.6.jar:/home/cosimo/workspace/verifuse/lib/commons-lang3-3.2.1.jar:/home/cosimo/workspace/verifuse/lib/comresrcgen-1.0.jar:/home/cosimo/workspace/verifuse/lib/dtd-parser-1.1.jar:/home/cosimo/workspace/verifuse/lib/eclipselink.jar:/home/cosimo/workspace/verifuse/lib/el-api-2.2.jar:/home/cosimo/workspace/verifuse/lib/gson-2.2.4.jar:/home/cosimo/workspace/verifuse/lib/guava-15.0.jar:/home/cosimo/workspace/verifuse/lib/gurobi-jar-8.1.1.jar:/home/cosimo/workspace/verifuse/lib/hk2-api-2.5.0-b32.jar:/home/cosimo/workspace/verifuse/lib/hk2-locator-2.5.0-b32.jar:/home/cosimo/workspace/verifuse/lib/hk2-utils-2.5.0-b32.jar:/home/cosimo/workspace/verifuse/lib/istack-commons-runtime-2.21.jar:/home/cosimo/workspace/verifuse/lib/istack-commons-tools-2.21.jar:/home/cosimo/workspace/verifuse/lib/jackson-annotations-2.4.0.jar:/home/cosimo/workspace/verifuse/lib/jackson-core-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-core-asl-1.9.11.jar:/home/cosimo/workspace/verifuse/lib/jackson-databind-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-dataformat-xml-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-dataformat-yaml-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-datatype-joda-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-jaxrs-base-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-jaxrs-json-provider-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jackson-mapper-asl-1.9.11.jar:/home/cosimo/workspace/verifuse/lib/jackson-module-jaxb-annotations-2.4.2.jar:/home/cosimo/workspace/verifuse/lib/jakarta.annotation-api-1.3.4.jar:/home/cosimo/workspace/verifuse/lib/jakarta.inject-2.5.0.jar:/home/cosimo/workspace/verifuse/lib/jakarta.ws.rs-api-2.1.5.jar:/home/cosimo/workspace/verifuse/lib/javassist-3.20.0-GA.jar:/home/cosimo/workspace/verifuse/lib/javax.annotation-api-1.2.jar:/home/cosimo/workspace/verifuse/lib/javax.inject-1.jar:/home/cosimo/workspace/verifuse/lib/javax.inject-2.5.0-b32.jar:/home/cosimo/workspace/verifuse/lib/javax.json-1.1.jar:/home/cosimo/workspace/verifuse/lib/javax.json-api-1.1.4.jar:/home/cosimo/workspace/verifuse/lib/javax.json.bind-api-1.0.jar:/home/cosimo/workspace/verifuse/lib/javax.servlet-api-3.0.1.jar:/home/cosimo/workspace/verifuse/lib/javax.ws.rs-api-2.1.1.jar:/home/cosimo/workspace/verifuse/lib/jaxb-api-2.2.12-b140109.1041.jar:/home/cosimo/workspace/verifuse/lib/jaxb-core-2.2.11.jar:/home/cosimo/workspace/verifuse/lib/jaxb-runtime-2.2.11.jar:/home/cosimo/workspace/verifuse/lib/jaxb-xjc-2.2.11.jar:/home/cosimo/workspace/verifuse/lib/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar:/home/cosimo/workspace/verifuse/lib/jersey-client-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-common-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-container-servlet-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-container-servlet-core-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-core-1.19.1.jar:/home/cosimo/workspace/verifuse/lib/jersey-entity-filtering-2.25.1.jar:/home/cosimo/workspace/verifuse/lib/jersey-guava-2.25.1.jar:/home/cosimo/workspace/verifuse/lib/jersey-hk2-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-hk2.jar:/home/cosimo/workspace/verifuse/lib/jersey-media-jaxb-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-media-json-binding-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-media-moxy-2.25.1.jar:/home/cosimo/workspace/verifuse/lib/jersey-media-multipart-2.25.1.jar:/home/cosimo/workspace/verifuse/lib/jersey-media-sse-2.28.jar:/home/cosimo/workspace/verifuse/lib/jersey-server-2.28.jar:/home/cosimo/workspace/verifuse/lib/joda-time-2.2.jar:/home/cosimo/workspace/verifuse/lib/json-simple-1.1.jar:/home/cosimo/workspace/verifuse/lib/jsonschema2pojo-core-0.4.0.jar:/home/cosimo/workspace/verifuse/lib/jsr250-api-1.0.jar:/home/cosimo/workspace/verifuse/lib/localizer-1.0.jar:/home/cosimo/workspace/verifuse/lib/log4j-api-2.9.1.jar:/home/cosimo/workspace/verifuse/lib/log4j-core-2.9.1.jar:/home/cosimo/workspace/verifuse/lib/mimepull-1.9.6.jar:/home/cosimo/workspace/verifuse/lib/org.eclipse.persistence.asm-2.6.0.jar:/home/cosimo/workspace/verifuse/lib/org.eclipse.persistence.core-2.6.0.jar:/home/cosimo/workspace/verifuse/lib/org.eclipse.persistence.moxy-2.6.0.jar:/home/cosimo/workspace/verifuse/lib/org.osgi.core-4.2.0.jar:/home/cosimo/workspace/verifuse/lib/osgi-resource-locator-1.0.1.jar:/home/cosimo/workspace/verifuse/lib/reflections-0.9.9.jar:/home/cosimo/workspace/verifuse/lib/relaxngDatatype-20020414.jar:/home/cosimo/workspace/verifuse/lib/slf4j-simple-1.7.25.jar:/home/cosimo/workspace/verifuse/lib/stax-ex-1.8.1.jar:/home/cosimo/workspace/verifuse/lib/stax2-api-3.1.4.jar:/home/cosimo/workspace/verifuse/lib/swagger-annotations-1.5.0.jar:/home/cosimo/workspace/verifuse/lib/swagger-core-1.5.0.jar:/home/cosimo/workspace/verifuse/lib/swagger-jaxrs-1.5.0.jar:/home/cosimo/workspace/verifuse/lib/swagger-jersey2-jaxrs-1.5.0.jar:/home/cosimo/workspace/verifuse/lib/swagger-models-1.5.0.jar:/home/cosimo/workspace/verifuse/lib/txw2-2.2.11.jar:/home/cosimo/workspace/verifuse/lib/validation-api-2.0.1.Final.jar:/home/cosimo/workspace/verifuse/lib/wadl-ant-1.1.6.jar:/home/cosimo/workspace/verifuse/lib/wadl-core-1.1.6.jar:/home/cosimo/workspace/verifuse/lib/wadl-xslt-1.1.6.jar:/home/cosimo/workspace/verifuse/lib/xsom-20140925.jar:/home/cosimo/workspace/verifuse/lib/yasson-1.0.jar:/home/cosimo/workspace/verifuse/lib/junit/junit.jar:/home/cosimo/workspace/verifuse/lib/junit/org.hamcrest.core.source_1.3.0.v20180420-1519.jar:/home/cosimo/workspace/verifuse/lib/junit/org.hamcrest.core_1.3.0.v20180420-1519.jar:/home/cosimo/workspace/verifuse/lib/junit/org.hamcrest.integration_1.3.0.v201305210900.jar:/home/cosimo/workspace/verifuse/lib/junit/org.hamcrest.library_1.3.0.v20180524-2246.jar:/home/cosimo/workspace/verifuse/lib/junit/org.hamcrest.text_1.1.0.v20090501071000.jar:/home/cosimo/workspace/verifuse/lib/junit/org.hamcrest_1.1.0.v20090501071000.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.api.source_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.api_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.api_5.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.engine_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.engine_5.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.migrationsupport.source_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.migrationsupport_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.migrationsupport_5.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.params_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.jupiter.params_5.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.commons.source_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.commons_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.commons_1.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.engine.source_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.engine_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.engine_1.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.launcher.source_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.launcher_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.launcher_1.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.runner.source_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.runner_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.runner_1.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.suite.api.source_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.suite.api_1.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.platform.suite.api_1.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.source_4.12.0.v201504281640.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.vintage.engine.source_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.vintage.engine_5.1.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.junit.vintage.engine_5.4.0.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/org.opentest4j.source_1.0.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.opentest4j_1.0.0.v20180327-1502.jar:/home/cosimo/workspace/verifuse/lib/junit/org.opentest4j_1.1.1.v20190212-2109.jar:/home/cosimo/workspace/verifuse/lib/junit/univocity-parsers-2.5.9.jar:/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-launcher.jar:/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar:/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit.jar:/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit4.jar"></property>
+    <property name="ant.library.dir" value="/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327/lib"></property>
+    <property name="os.arch" value="amd64"></property>
+    <property name="pckg.location.chainfunctionality" value="it/polito/verifuse/jaxb/chainfunctionality"></property>
+    <property name="sun.java.launcher" value="SUN_STANDARD"></property>
+    <property name="pckg.location.fieldsmanifest" value="it/polito/verifuse/jaxb/fieldsmanifest"></property>
+    <property name="pckg.requirementslist" value="it.polito.verifuse.jaxb.requirementslist"></property>
+    <property name="ant.core.lib" value="/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar"></property>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"></property>
+    <property name="file.separator" value="/"></property>
+    <property name="schema.requirementslist" value="RequirementsList.xsd"></property>
+    <property name="pckg.tools" value="it.polito.verifuse.jaxb.tools"></property>
+    <property name="java.runtime.version" value="1.8.0_261-b12"></property>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/jdk1.8.0_261/jre/lib/resources.jar:/usr/lib/jvm/jdk1.8.0_261/jre/lib/rt.jar:/usr/lib/jvm/jdk1.8.0_261/jre/lib/sunrsasign.jar:/usr/lib/jvm/jdk1.8.0_261/jre/lib/jsse.jar:/usr/lib/jvm/jdk1.8.0_261/jre/lib/jce.jar:/usr/lib/jvm/jdk1.8.0_261/jre/lib/charsets.jar:/usr/lib/jvm/jdk1.8.0_261/jre/lib/jfr.jar:/usr/lib/jvm/jdk1.8.0_261/jre/classes"></property>
+    <property name="pckg.location.node" value="it/polito/verifuse/jaxb/node"></property>
+    <property name="env.SSH_AUTH_SOCK" value="/run/user/1000/keyring/ssh"></property>
+    <property name="env.XDG_RUNTIME_DIR" value="/run/user/1000"></property>
+    <property name="env.XDG_CONFIG_DIRS" value="/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg"></property>
+    <property name="pckg.filesupport" value="it.polito.verifuse.jaxb.filesupport"></property>
+    <property name="schema.manifestvnfs" value="ManifestVNFs.xsd"></property>
+    <property name="user.country" value="IT"></property>
+    <property name="env.ANT_HOME" value="/opt/eclipse/plugins/org.apache.ant_1.9.6.v201510161327"></property>
+    <property name="outputXjc.dir" value="/home/cosimo/workspace/verifuse/outXjc"></property>
+    <property name="env.SHELL" value="/bin/bash"></property>
+    <property name="java.vendor" value="Oracle Corporation"></property>
+    <property name="env.GPG_AGENT_INFO" value="/run/user/1000/gnupg/S.gpg-agent:0:1"></property>
+    <property name="schema.fieldsmanifest" value="FieldsManifest.xsd"></property>
+    <property name="env.CATALINA_HOME" value="/opt/tomcat/apache-tomcat-8.5.59"></property>
+    <property name="java.specification.version" value="1.8"></property>
+    <property name="sun.arch.data.model" value="64"></property>
+  </properties>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testNullSetFunctionality" time="0.004"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testMarshallingChain" time="0.323"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testPerformPostScenarioOnNeo4j" time="1.027"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testSearchFunctionalitySuccess" time="0.012"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testTimeExecutionSetted" time="0.024"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testPerformPostScenarioOnNeo4jNullClient" time="0.038"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testSizeSatisfabilityChain" time="0.023"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testSatisfabilityChain" time="0.022"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testCheckActionAssignAndFieldConfig" time="0.042"></testcase>
+  <testcase classname="it.polito.verifuse.framework.test.LERTest" name="testSizeChain" time="0.035"></testcase>
+  <system-out><![CDATA[
+--- Post of Root-LER executed correctly ---
+
+--- Post of Requirement_1 executed correctly ---
+
+--- Post of F:565125952 executed correctly ---
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

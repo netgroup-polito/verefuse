@@ -1,0 +1,21 @@
+Testsuite: it.polito.verifuse.framework.test.LERTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3,149 sec
+------------- Standard Output ---------------
+
+--- Post of Root-LER executed correctly ---
+
+--- Post of Requirement_1 executed correctly ---
+
+--- Post of F:565125952 executed correctly ---
+------------- ---------------- ---------------
+
+Testcase: testNullSetFunctionality took 0,007 sec
+Testcase: testMarshallingChain took 0,323 sec
+Testcase: testPerformPostScenarioOnNeo4j took 1,027 sec
+Testcase: testSearchFunctionalitySuccess took 0,012 sec
+Testcase: testTimeExecutionSetted took 0,024 sec
+Testcase: testPerformPostScenarioOnNeo4jNullClient took 0,037 sec
+Testcase: testSizeSatisfabilityChain took 0,023 sec
+Testcase: testSatisfabilityChain took 0,022 sec
+Testcase: testCheckActionAssignAndFieldConfig took 0,042 sec
+Testcase: testSizeChain took 0,035 sec

@@ -1,0 +1,279 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"
+		xmlns:fd="http://www.verifuse.polito.it/fieldsmanifest"
+		xmlns:ac="http://www.verifuse.polito.it/actionsmanifest"
+        xmlns:tns="http://www.verifuse.polito.it/manifestvnfs"
+        targetNamespace="http://www.verifuse.polito.it/manifestvnfs"
+        elementFormDefault="qualified">
+
+  	<import namespace="http://www.w3.org/XML/1998/namespace" 	schemaLocation="xml.xsd"/> 
+  	<import namespace="http://www.verifuse.polito.it/fieldsmanifest" 	schemaLocation="FieldsManifest.xsd"/>  	  	
+ 	<import namespace="http://www.verifuse.polito.it/actionsmanifest" 	schemaLocation="ActionsManifest.xsd"/>  	  	
+ 	
+  	
+  	<element name="ManifestVNFs">
+	  	<complexType>
+	  		<sequence>
+	  			<element name="ManifestVNF" minOccurs="1" maxOccurs="unbounded">
+  				<complexType>
+  					<sequence>
+						<element name="Description" type="string" 				minOccurs="1" maxOccurs="1"> </element>
+						<element name="GeneralInfo" type="tns:GeneralInfo" 	    minOccurs="0" maxOccurs="1"></element>
+		  				<element name="SoftwareInfo" type="tns:SoftwareInfo" 	minOccurs="0" maxOccurs="1"></element>
+		  				<element name="HardwareInfo" type="tns:HardwareInfo" 	minOccurs="0" maxOccurs="1"></element>
+		  				<element name="ManifestInfo" minOccurs="1" maxOccurs="1">
+		  					<complexType>
+		  						<sequence>
+			  						<element ref="fd:FieldsManifest" minOccurs="1" maxOccurs="1"></element>
+			  						<element ref="ac:ActionsManifest" minOccurs="1" maxOccurs="1"></element>	
+		  						</sequence>
+		  					</complexType>
+		  					
+		  				</element>
+		  			</sequence>
+		  			<attribute name="Manifest_ID" type="string" use="required"></attribute>
+		  		</complexType>
+	  			
+	  			</element>
+	  		</sequence>
+	  	</complexType>
+	  	<unique name="uniqueNumberManifest">
+			<selector xpath="tns:ManifestVNF"/>
+			<field xpath="@Manifest_ID"/>
+		</unique>		
+  	</element>
+  	
+  		<!-- Definition of the GeneralInfoType element -->
+	<complexType name="GeneralInfo">
+		<sequence>
+			<element name="WebSite" type="anyURI" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+		<attribute name="Vendor"  type="string" use="optional"/>
+	</complexType>	
+	
+	<!-- Definition of the SoftwareInfoType element -->
+	<complexType name="SoftwareInfo">
+		<sequence>
+			<element name="Developers"	minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence>
+						<element name="Developer" type="string" minOccurs="1" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+				
+				<!-- Definition of the unique for the name of the Developers -->
+			    <unique name="Unique_DeveloperName">
+			    	<selector xpath="tns:Developer"/>
+			      	<field xpath="@Name"/>
+			    </unique>
+			</element>
+			<element name="VersionInfo"	minOccurs="0" maxOccurs="1">
+				<complexType>
+					<attribute name="version" 	  type="tns:regExrVersion" use="required"/>
+					<attribute name="release" 	  type="tns:regExrVersion" use="required"/>
+					<attribute name="releaseDate" type="tns:regExrDate"    use="required"/>
+				</complexType>
+			</element>
+			<element name="Repository"	type="anyURI" 	minOccurs="0" 	maxOccurs="1"/>
+			<element name="ProgrammingLanguagesUsed" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence>
+						<element name="ProgrammingLanguage" type="tns:ProgrammingLanguage" minOccurs="1" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+				
+				<!-- Definition of the unique for the programming language in the field -->
+			    <unique name="Unique_ProgrammingLanguage">
+			    	<selector xpath="tns:ProgrammingLanguage"/>
+			      	<field xpath="@ProgrammingLanguage_Name"/>
+			    </unique>
+			</element>
+			<element name="OperatingSystemsSupported" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence>
+						<element name="OperatingSystem"	minOccurs="1" 	maxOccurs="unbounded">
+							<complexType>
+								<attribute name="OS_Type" 	   	   type="tns:OS_Type"/>
+								<attribute name="OS_Version" 	   type="string"/>
+								<attribute name="OS_Architecture"  type="tns:Architecture"/>
+							</complexType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Licence"	type="tns:Licence"	minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>  
+	
+	<!-- Definition of the OS_TypeEnum -->
+	<simpleType name="OS_Type">
+  		<restriction base="string">
+  			<enumeration value="ARM"/>
+  			<enumeration value="Android"/>
+  			<enumeration value="BSD"/>
+  			<enumeration value="CentOS"/>
+  			<enumeration value="Debian"/>
+  			<enumeration value="Fedora"/>
+  			<enumeration value="Fink"/>
+  			<enumeration value="FreeBSD"/>
+  			<enumeration value="OpenBSD"/>
+  			<enumeration value="Gentoo"/>
+  			<enumeration value="IBM"/>
+  			<enumeration value="iOS"/> 
+  			<enumeration value="Linux"/>
+  			<enumeration value="macOS"/>
+  			<enumeration value="Maemo"/>
+  			<enumeration value="Mandriva"/>
+  			<enumeration value="NetBSD"/>
+  			<enumeration value="Slackware"/>
+  			<enumeration value="SLES"/>
+  			<enumeration value="Solaris"/>
+  			<enumeration value="Ubuntu"/>
+  			<enumeration value="Unix"/>
+  			<enumeration value="Windows"/>
+  			<enumeration value="Other"/>
+  			<enumeration value="Unspecified"/>
+  		</restriction>
+  	</simpleType>
+  	
+  	<!-- Definition of the ArchitectureEnum -->
+	<simpleType name="Architecture">
+  		<restriction base="string">
+  			<enumeration value="x86"/>
+  			<enumeration value="x64"/>
+  			<enumeration value="ARM"/>
+  			<enumeration value="Unspecified"/>
+  		</restriction>
+  	</simpleType>
+  	
+  	<!--  Definition of the HardwareInfoType element -->
+	<complexType name="HardwareInfo">
+		<sequence>
+			<element name="CPU"  	  type="tns:CPU" 		minOccurs="0" maxOccurs="1"/>
+			<element name="RAM"  	  type="tns:RAM"  		minOccurs="0" maxOccurs="1"/>
+			<element name="Disk" 	  type="tns:Disk" 		minOccurs="0" maxOccurs="1"/>
+			<element name="Bandwidth" type="tns:Bandwidth"  minOccurs="0" maxOccurs="1"/>
+			<element name="Cost" 	  type="integer" 		minOccurs="0" maxOccurs="1"/>
+			<element name="Delay" 	  type="tns:Delay" 		minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<!-- Definition of the CPU_Type element -->
+	<complexType name="CPU">
+		<attribute name="value" type="decimal" 		use="required"/>
+		<attribute name="unit"  type="tns:CPU_Unit" use="required"/>
+	</complexType>
+	
+	<!-- Definition of the CPU_Unit -->
+	<simpleType name="CPU_Unit">
+  		<restriction base="string">
+  			<enumeration value="Ghz"/>
+  			<enumeration value="Mhz"/>
+  		</restriction>
+  	</simpleType>
+	
+	<!-- Definition of the RAM_Type element -->
+	<complexType name="RAM">
+		<attribute name="value" type="integer" 		use="required"/>
+		<attribute name="unit"  type="tns:RAM_Unit" use="required"/>
+	</complexType>
+	
+	<!-- Definition of the RAM_Unit -->
+	<simpleType name="RAM_Unit">
+  		<restriction base="string">
+  			<enumeration value="KB"/>
+  			<enumeration value="MB"/>
+  			<enumeration value="GB"/>
+  		</restriction>
+  	</simpleType>
+	
+	<!-- Definition of the Disk_Type element -->
+	<complexType name="Disk">
+		<attribute name="value" type="integer" 		use="required"/>
+		<attribute name="unit"  type="tns:Disk_Unit" use="required"/>
+	</complexType>
+	
+	<!-- Definition of the Disk_Unit -->
+	<simpleType name="Disk_Unit">
+  		<restriction base="string">
+  			<enumeration value="KB"/>
+  			<enumeration value="MB"/>
+  			<enumeration value="GB"/>
+  			<enumeration value="TB"/>
+  		</restriction>
+  	</simpleType>
+  	
+  	<!-- Definition of the Bandwidth_Type element -->
+	<complexType name="Bandwidth">
+		<attribute name="value" type="integer" 		 	  use="required"/>
+		<attribute name="unit"  type="tns:Bandwidth_Unit" use="required"/>
+	</complexType>
+	
+	<simpleType name="Bandwidth_Unit">
+  		<restriction base="string">
+  			<enumeration value="Kb/s"/>
+  			<enumeration value="Mb/s"/>
+  			<enumeration value="Gb/s"/>
+  		</restriction>
+  	</simpleType>
+  	
+   <!-- Definition of the Delay_Type element -->
+	<complexType name="Delay">
+		<attribute name="value" type="integer" 		 	  use="required"/>
+		<attribute name="unit"  type="tns:MaxDelay_Unit"  use="required"/>
+	</complexType>
+	
+	<simpleType name="MaxDelay_Unit">
+  		<restriction base="string">
+  			<enumeration value="ms"/>
+  		</restriction>
+  	</simpleType>
+
+  	<!-- Regular expression for the version -->
+    <simpleType name="regExrVersion">
+    	<restriction base="string">
+    		<pattern value="((\d+)(\.\d+)*)"/>
+    	</restriction>
+    </simpleType>
+    
+    <!-- Regular expression for the date -->
+    <simpleType name="regExrDate">
+    	<restriction base="string">
+    		<pattern value="(\d{4})(\.|:|\\)(([0]{0,1}[1-9])|(1{1}[0-2]{1}))(\.|:|\\)(([0-2]){0,1}[0-9]{1}|(3{1}[0-1]{1}))"/>
+    	</restriction>
+    </simpleType>
+    
+    <simpleType name="Licence">
+		<restriction base="string">
+			<enumeration value="BSD"/>
+			<enumeration value="Commercial"/>
+			<enumeration value="Freeware"/>
+			<enumeration value="GPL"/>
+			<enumeration value="MIT"/>
+			<enumeration value="Other"/>
+			<enumeration value="Unspecified"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="ProgrammingLanguage">
+		<restriction base="string">
+			<enumeration value="Assembly"/>
+			<enumeration value="C"/>
+			<enumeration value="C++"/>
+			<enumeration value="C#"/>
+			<enumeration value="Delphi"/>
+			<enumeration value="Java"/>
+			<enumeration value="JavaScript"/>
+			<enumeration value="Matlab"/>
+			<enumeration value="Perl"/>
+			<enumeration value="Python"/>
+			<enumeration value="R"/>
+			<enumeration value="Ruby"/>
+			<enumeration value="SQL"/>
+			<enumeration value="Visual Basic"/>
+			<enumeration value="Other"/>
+			<enumeration value="Unspecified"/>
+		</restriction>
+	</simpleType>
+</schema>

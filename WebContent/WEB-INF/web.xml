@@ -1,0 +1,41 @@
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>Restful Web Application of the Verifuse framework</display-name>
+	<welcome-file-list>
+	    <welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<!-- Define ServletContainer of Jersey -->
+    <servlet>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>io.swagger.jersey.listing.ApiListingResourceJSON,
+            			 io.swagger.jaxrs.listing.SwaggerSerializers,
+            		     io.swagger.jaxrs.listing,
+			 			 it.polito.verifuse
+	    	</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Jersey2Config</servlet-name>
+        <servlet-class>io.swagger.jersey.config.JerseyJaxrsConfig</servlet-class>
+        <init-param>
+            <param-name>api.version</param-name>
+            <param-value>1.0.0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>swagger.api.basepath</param-name>
+            <param-value>http://localhost:8080/verifuse/webapi</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <!-- Map all the URLs to the Jersey ServletContainer -->
+    <servlet-mapping>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <url-pattern>/webapi/*</url-pattern>
+    </servlet-mapping>
+</web-app>

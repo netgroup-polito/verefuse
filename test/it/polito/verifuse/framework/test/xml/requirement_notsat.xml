@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequirementsList
+	xmlns="http://www.verifuse.polito.it/requirementslist"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:fd="http://www.verifuse.polito.it/fields"
+	xmlns:ac="http://www.verifuse.polito.it/actions"
+	xsi:schemaLocation="http://www.verifuse.polito.it/requirementslist ../../../../../../../xsd/RequirementsList.xsd">
+
+	<Requirement Req_ID="1">
+		<Info>
+			<Description>Questa è una descrizione REQ1</Description>
+			<Administrator>MARIO ROSSI</Administrator>
+		</Info>
+		<fd:Fields> 
+			<fd:IpSrc Version="ipv4" Address="10.0.3.21/24"/>
+			<fd:PortDst Range="100-10500" RangeSetting="inside"/>
+			<fd:Proto TypeProtocol="TCP"/>
+			<fd:Urls>
+				<fd:Url URLvalue="http://example.com/provapage.html"/>
+			</fd:Urls>							
+			<fd:DaysAndTimes TimeZone="TMZ">
+				<fd:DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>  
+				<fd:DayAndTime Day="Friday" />				
+				<fd:DayAndTime Day="Monday" TimeStart="01:10:33" TimeEnd="12:15:22"/>								
+			</fd:DaysAndTimes>
+			<fd:Documents>
+				<fd:Document Type="PDF" Regex="myregex"/>
+				<fd:Document Type="DOCX"/>
+			</fd:Documents>
+		</fd:Fields>
+		<Actions>		
+			<ActionSet Order="1" Concurrent="true">
+				<ActionRequired Action="IDS"/>
+				<ActionRequired Action="IPS"/>
+			</ActionSet>
+		</Actions>
+	</Requirement>
+
+
+
+</RequirementsList>

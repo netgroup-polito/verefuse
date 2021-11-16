@@ -1,0 +1,55 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.verifuse.polito.it/node"
+        targetNamespace="http://www.verifuse.polito.it/node"
+        elementFormDefault="qualified">
+        
+	<annotation>
+      	<documentation xml:lang="en">
+	      	This schema was created to represent the Node class which is used 
+	      	by the Neo4J server REST
+    	</documentation>
+  	</annotation>
+  	
+  	<!-- Definition of the Node element -->
+	<element name="Node" type="tns:Node"/>
+  	<complexType name="Node">
+  		<sequence>
+  			<element name="Element" type="string" minOccurs="0" maxOccurs="unbounded"></element>
+  		</sequence>
+  		<attribute name="name" type="string" use="required"/>
+  		<attribute name="self" type="anyURI" use="required"/>
+  	</complexType>
+  	
+  	  	  <!-- Definition of the NodeResponse element -->
+	<element name="NodeResponse" type="tns:NodeResponse"/>
+  	<complexType name="NodeResponse">
+  		<sequence>
+  			<element name="self" type="string" minOccurs="1" maxOccurs="1"/>
+  			<element name="data" minOccurs="1" maxOccurs="1">
+  				<complexType>
+				  	<sequence>
+  						<element name="Element" type="string" minOccurs="0" maxOccurs="unbounded"></element>
+  					</sequence>
+  					<attribute name="name" type="string" use="required"/>
+  				</complexType>
+  			</element>
+  			<element name="metadata" minOccurs="1" maxOccurs="1">
+  				<complexType>
+  					<sequence>
+  			    		<element name="labels" type="string" minOccurs="0" maxOccurs="unbounded"/>
+  					</sequence>  				
+  					<attribute name="id" type="string" use="required"/>
+  				</complexType>
+  			</element>
+  		</sequence>
+  	</complexType>
+  	
+ 	
+  	<!-- Definition of the Relationship element -->
+  	<element name="Relationship"  type="tns:Relationship"/>
+  	<complexType name="Relationship">
+			<attribute name="to" type="anyURI" use="required"/>
+			<attribute name="type" type="string" use="required"/>
+	</complexType>
+</schema>

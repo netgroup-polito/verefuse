@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_70">
+        <Solution Sol_ID="SOL_0" Satisfiability="COMPLETE">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21" ConfigField="CONF_DEC"/>
+                    <IpDst Version="IPV_4" Address="1.2.3.4" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="VPN_TRAFFIC" Constraint_Action="SSL_RSA_WITH_NULL_SHA" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF12"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

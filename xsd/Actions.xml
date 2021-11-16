@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Action
+	xmlns="http://www.verifuse.polito.it/actions"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.verifuse.polito.it/actions Actions.xsd">
+
+
+	<SimpleAction Type="ALLOW">
+		<ExtraInfo>details</ExtraInfo>
+	</SimpleAction>
+	
+	
+</Action>

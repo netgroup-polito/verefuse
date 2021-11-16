@@ -1,0 +1,475 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:tns="http://www.verifuse.polito.it/fields"
+        targetNamespace="http://www.verifuse.polito.it/fields"
+        elementFormDefault="qualified">
+
+	<!-- List of Field supported  -->
+	<element name="Fields">
+		<complexType>
+			<sequence>
+				<element name="IpSrc" 									minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Version" type="tns:versionOfIp" use="required"></attribute>
+						<attribute name="Address" type="tns:IpAddress" 	 use="required"></attribute>
+					</complexType>
+				</element>
+				<element name="IpDst" 									minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Version" type="tns:versionOfIp" use="required"></attribute>
+						<attribute name="Address" type="tns:IpAddress" 	 use="required"></attribute>
+					</complexType>
+				</element>				
+				<element name="PortSrc" 								minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Range" 		type="tns:portvalue" 		 use="required"></attribute>
+						<attribute name="RangeSetting" 	type="tns:rangeSettings" 	 use="required"></attribute>
+					</complexType>
+				</element>				
+				<element name="PortDst" 								minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="Range" 		type="tns:portvalue" 		 use="required"></attribute>
+						<attribute name="RangeSetting" 	type="tns:rangeSettings" 	 use="required"></attribute>
+					</complexType>
+				</element>				
+				<element name="Proto" 					minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="TypeProtocol" type="tns:protype" ></attribute>
+					</complexType>
+				</element>
+				<element name="Urls" 		type="tns:listanyURI" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Domains" 	type="tns:DomainlistanyURI" minOccurs="0" maxOccurs="1"></element>
+				<element name="VlanTag" 	type="string" 				minOccurs="0" maxOccurs="1"></element>
+				
+				<element name="DaysAndTimes" 	type="tns:DaysAndTimesType" minOccurs="0" maxOccurs="1"></element>
+				
+				<element name="Documents"		type="tns:Documents" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Scripts"			type="tns:Scripts" 			minOccurs="0" maxOccurs="1"></element>
+				<element name="WebPages"		type="tns:Webpages" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Applications" 	type="tns:Applications" 	minOccurs="0" maxOccurs="1"></element>
+				<element name="Medias"			type="tns:Medias" 			minOccurs="0" maxOccurs="1"></element>
+				<element name="Advertisings"	type="tns:Advertisings" 	minOccurs="0" maxOccurs="1"></element>
+				<element name="Emails"			type="tns:Emails" 			minOccurs="0" maxOccurs="1"></element>
+				
+				<element name="Priority"    type="integer" 				minOccurs="0" maxOccurs="1"></element>
+				<element name="Body"		type="string" 				minOccurs="0" maxOccurs="1"></element>
+				<element name="GeoPosition"	type="tns:Position" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="Displace"	type="string" 				minOccurs="0" maxOccurs="1"></element>
+				<element name="Bandwidth"   type="tns:BandType" 		minOccurs="0" maxOccurs="1"></element>
+				<element name="RemarkField" 							minOccurs="0" maxOccurs="1">
+					<complexType>
+						<attribute name="FieldName" type="tns:AlterableField" 	use="required"></attribute>
+						<attribute name="Value" 	type="string" 			use="required"></attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+		<unique name="uniqueDay">
+				<selector xpath="tns:DaysAndTimes/tns:DayAndTime"/>
+				<field xpath="@Day"/>
+		</unique>
+	</element>
+	
+	
+	<simpleType name="configField">
+    	<restriction base="string">
+    		<enumeration value="inside"/>
+    		<enumeration value="outside"/>
+    	</restriction>
+    </simpleType>
+	
+	<simpleType name="rangeSettings">
+    	<restriction base="string">
+    		<enumeration value="inside"/>
+    		<enumeration value="outside"/>
+    	</restriction>
+    </simpleType>
+	
+	<simpleType name="versionOfIp">
+    	<restriction base="string">
+    		<enumeration value="ipv4"/>
+    		<enumeration value="ipv6"/>
+    	</restriction>
+    </simpleType>
+	
+	
+	<complexType name="Position">
+		<attribute name="Country" type="tns:countrytype" use="required"></attribute>
+	</complexType>
+	
+	<simpleType name="countrytype">
+    	<restriction base="string">
+    		<enumeration value="Italia"/>
+    		<enumeration value="Europa"></enumeration>
+    		<enumeration value="Francia"/>
+    		<enumeration value="Germania"></enumeration>
+    		<enumeration value="*"></enumeration>
+    	</restriction>
+    </simpleType>
+	
+	
+	
+	<complexType name="DaysType">
+		<sequence>
+			<element name="Day" minOccurs="1" maxOccurs="7">
+				<complexType>
+					<attribute name="Day" type="tns:Day"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+	<!-- Defined element to represent information about Data and time  -->
+	<complexType name="DaysAndTimesType">
+		<sequence>
+			<element name="DayAndTime" minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Day" 		type="tns:Day" 			use="required"></attribute>
+					<attribute name="TimeStart" type="tns:regExrTime" 	use="optional"></attribute>
+					<attribute name="TimeEnd" 	type="tns:regExrTime" 	use="optional"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="TimeZone" type="string" use="required"></attribute>
+	</complexType>
+	
+	<!-- Which AuthN Mechanism can support -->
+	
+	<simpleType name="AuthNSuite">
+    	<restriction base="string">
+    		<enumeration value="ECDSA"/>
+    		<enumeration value="RSA"></enumeration>
+    		<enumeration value="DSA"></enumeration>
+    	</restriction>
+    </simpleType>
+	
+	<!-- Which Exchange Key  can support -->
+	
+	<simpleType name="KeyExchangeSuite">
+    	<restriction base="string">
+    		<enumeration value="ECDH"/>
+    		<enumeration value="ECDHE"/>
+    		<enumeration value="RSA"></enumeration>
+    		<enumeration value="PSK"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <!-- Which Encrypt can support -->
+    
+	<simpleType name="EncryptSuite">
+    	<restriction base="string">
+    		<enumeration value="RC4_256"/>
+    		<enumeration value="3DES168"/>
+    		<enumeration value="ASE128"></enumeration>
+    		<enumeration value="RSA"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <!-- Which Integrity mechanism can support -->
+    
+	<simpleType name="IntegritySuite">
+    	<restriction base="string">
+    		<enumeration value="MD5"/>
+    		<enumeration value="SHA1"></enumeration>
+    		<enumeration value="SHA2"></enumeration>
+    	</restriction>
+    </simpleType>
+	
+	<!-- RegEx for represent a Band value written like 12Kbit/s -->
+	<simpleType name="BandType">
+    	<restriction base="string">
+    		<pattern value="[0-9]*[KMG]bit\/s"/>
+    	</restriction>
+    </simpleType>
+    
+    <!-- Content type supported-->
+	<complexType name="Documents">
+		<sequence>
+			<element name="Document"  minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="tns:DocumentType" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Scripts">
+		<sequence>
+			<element name="Script" 	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="tns:ScriptType" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+					
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+ 
+	<complexType name="Webpages">
+		<sequence>
+			<element name="WebPage"   minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Regex" type="string" use="optional"></attribute>								
+					<attribute name="Type" type="tns:WebType" use="required"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Applications">
+		<sequence>
+			<element name="Application"  	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="tns:AppType" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Medias">
+		<sequence>
+			<element name="Media"  	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="tns:MediaType" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>					
+		</sequence>
+	</complexType>
+
+	<complexType name="Advertisings">
+		<sequence>
+			<element name="Advertising"		minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Emails">
+		<sequence>
+			<element name="Email"  	minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="Type" type="string" use="required"></attribute>
+					<attribute name="Regex" type="string" use="optional"></attribute>				
+
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+    
+    <!-- Kind of media type supported-->
+    
+    <simpleType name="MediaType">
+    	<restriction base="string">
+    		<enumeration value="AUDIO"/>
+    		<enumeration value="VIDEO"/>
+    		<enumeration value="IMAGES"/>
+    		<enumeration value="*"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <!-- Kind of Application type supported-->
+    
+    <simpleType name="AppType">
+    	<restriction base="string">
+    		<enumeration value="VLC"/>
+    		<enumeration value="MESSENGER"/>
+    		<enumeration value="MEDIA_PLAYER"/>
+    		<enumeration value="WHATSAPP"/>
+    		<enumeration value="*"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <!-- Kind of Web element can be supported-->
+    
+   	<simpleType name="WebType">
+    	<restriction base="string">
+    		<enumeration value="HTML"/>
+    		<enumeration value="ASPX"/>
+    		<enumeration value="TAG_A"/>
+    		<enumeration value="TAG_HREF"/>
+    		<enumeration value="TAG_IMG"/>
+    		<enumeration value="TAG_P"/>
+    		<enumeration value="*"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <!--  Script that can be recognised -->
+    
+    <simpleType name="ScriptType">
+    	<restriction base="string">
+    		<enumeration value="JS"/>
+    		<enumeration value="BASH"/>
+    		<enumeration value="BAT"/>
+    		<enumeration value="PYTHON"/>
+    		<enumeration value="*"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <!--  Document that can be recognized -->
+    <simpleType name="DocumentType">
+    	<restriction base="string">
+    		<enumeration value="PDF"/>
+    		<enumeration value="DOC"/>
+    		<enumeration value="DOCX"/>
+    		<enumeration value="*"></enumeration>
+    	</restriction>
+    </simpleType>
+   	
+	<complexType name="TimePeriod">
+    	<attribute name="TimeZone" type="string"/>
+    	<attribute name="Start" type="tns:regExrTime"/>
+    	<attribute name="End"   type="tns:regExrTime"/>
+    </complexType>
+        
+     <!-- RegEx to represent time in a correct form-->
+    <simpleType name="regExrTime">
+    	<restriction base="string">
+    		<pattern value="(([0-1]{0,1}[0-9]{1})|(2{1}[0-3]{1})):([0-5]{0,1}[0-9]{1})(:[0-5]{0,1}[0-9]{1})?"/>
+    	</restriction>
+    </simpleType>
+	
+	<!-- Days of week -->
+	
+	<simpleType name="Day">
+		<restriction base="string">
+			<enumeration value="Monday"/>
+			<enumeration value="Tuesday"/>
+			<enumeration value="Wednesday"/>
+			<enumeration value="Thursday"/>
+			<enumeration value="Friday"/>
+			<enumeration value="Saturday"/>
+			<enumeration value="Sunday"/>
+			<enumeration value="Weekend"/>
+			<enumeration value="*"></enumeration>
+		</restriction>
+    </simpleType>
+	
+	<complexType name="DomainlistanyURI">
+		<sequence>
+			<element name="Domain"  maxOccurs="unbounded">
+				<complexType>
+					<attribute name="DomainValue" type="anyURI"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+	
+	<complexType name="listanyURI">
+		<sequence>
+			<element name="Url" 	maxOccurs="unbounded">
+				<complexType>
+					<attribute name="URLvalue" type="anyURI"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+	
+	<!-- Protocol type supported-->
+	
+	<simpleType name="protype">
+		<restriction base="string">
+			<enumeration value="TCP"></enumeration>
+			<enumeration value="UDP"></enumeration>
+			<enumeration value="HTTP"></enumeration>
+			<enumeration value="HTTPS"></enumeration>
+			<enumeration value="TLS"></enumeration>
+			<enumeration value="IPSEC"></enumeration>
+			<enumeration value="SMTP"></enumeration>
+			<enumeration value="POP3"></enumeration>
+			<enumeration value="IMAP"></enumeration>
+			<enumeration value="ICMP"></enumeration>
+			<enumeration value="IP_ESP"></enumeration>
+			<enumeration value="IP_AH"></enumeration>
+			<enumeration value="GRE"></enumeration>
+			<enumeration value="FTP"></enumeration>
+			<enumeration value="SSH"></enumeration>
+			<enumeration value="SSL"></enumeration>
+			<enumeration value="*"></enumeration>
+		</restriction>
+	</simpleType>
+	
+	<complexType name="iptype">
+		<sequence>
+			<element name="Address" type="tns:IpAddress"></element>
+		</sequence>
+		<attribute name="type" type="string" use="required"></attribute>
+	</complexType>
+	
+	<complexType name="ptype">
+		<sequence>
+			<element name="Number" type="tns:portvalue"></element>
+		</sequence>
+		<attribute name="type" type="string" use="required"></attribute>
+	</complexType>
+	
+	<!--  RegEx for correct input of field IP address ipv4 and IP v6 format e Port format support -->
+	<simpleType name="portvalue">
+		<restriction base="string">
+			<pattern value="()([1-9]|[1-5]?[0-9]{2,4}|6[1-4][0-9]{3}|65[1-4][0-9]{2}|655[1-2][0-9]|6553[1-5])"></pattern>
+			<pattern value="()([1-9]|[1-5]?[0-9]{2,4}|6[1-4][0-9]{3}|65[1-4][0-9]{2}|655[1-2][0-9]|6553[1-5])-()([1-9]|[1-5]?[0-9]{2,4}|6[1-4][0-9]{3}|65[1-4][0-9]{2}|655[1-2][0-9]|6553[1-5])"></pattern>
+	  		<pattern value="[\*]" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="IpAddress">
+	  <restriction base="string">
+	  	<pattern value="(((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2]))"></pattern>
+	    <pattern value="((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])" />
+	  	<pattern value="([A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}" />
+	  	<pattern value="[\*]" />
+	  </restriction>
+	</simpleType>
+	
+  	<simpleType name="ReferField">
+		<restriction base="string">
+			<enumeration value="IpSrcVer4"/>
+			<enumeration value="IpDstVer4"/>
+			<enumeration value="IpSrcVer6"/>
+			<enumeration value="IpDstVer6"/>			
+			<enumeration value="PortSrc"/>
+			<enumeration value="PortDst"/>
+			<enumeration value="Proto"/>
+			<enumeration value="Urls"/>
+			<enumeration value="Domain"/>
+			<enumeration value="VlanTag"/>
+			<enumeration value="DaysAndTimes"/>
+			<enumeration value="Documents"/>
+			<enumeration value="Scripts"/>
+			<enumeration value="WebPages"/>
+			<enumeration value="Applications"/>
+			<enumeration value="Medias"/>
+			<enumeration value="Advertisings"/>
+			<enumeration value="Emails"/>
+			<enumeration value="Priority"/>
+			<enumeration value="Body"/>
+			<enumeration value="GeoPosition"/>
+			<enumeration value="Displace"/>
+			<enumeration value="Bandwidth"/>
+			<enumeration value="RemarkField"/>			
+		</restriction>
+  	</simpleType>  
+  			
+	<simpleType name="AlterableField">
+		<restriction base="string">
+			<enumeration value="IpSrcVer4"/>
+			<enumeration value="IpDstVer4"/>
+			<enumeration value="IpSrcVer6"/>
+			<enumeration value="IpDstVer6"/>			
+			<enumeration value="PortSrc"/>
+			<enumeration value="PortDst"/>
+			<enumeration value="VlanTag"/>
+			<enumeration value="Priority"/>
+			<enumeration value="Body"/>
+			<enumeration value="GeoPosition"/>
+			<enumeration value="Bandwidth"/>		
+		</restriction>
+  	</simpleType>  		
+	
+
+</schema>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_91">
+        <Solution Sol_ID="SOL_0" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_NOT_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_1" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_NOT_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_2" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="2"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF9"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_3" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="2"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF7"/>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_4" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_NOT_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF7"/>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_5" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="2"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_NOT_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_6" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="2"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF2"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+        <Solution Sol_ID="SOL_7" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_NOT_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="LOG_TRAFFIC" Priority_Action="1">
+                        <InfoOnAction>PORT_DST</InfoOnAction>
+                        <InfoOnAction>IP_SRC_VER_4</InfoOnAction>
+                    </Action>
+                    <Action Name_Action="ALERT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="PROTECT_INTEGRITY" Constraint_Action="SHA2" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF10"/>
+                </SupportedByVNFS>
+            </Functionality>
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="INSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="*" ConfigField="CONF_DEC"/>
+                    <Urls ConfigField="NOT_CONF_MAKE_DEC">
+                        <Url URLvalue="*"/>
+                    </Urls>
+                    <Domains ConfigField="NOT_CONF_NOT_DEC">
+                        <Domain DomainValue="*"/>
+                    </Domains>
+                    <DaysAndTimes TimeZone="TMZ" ConfigField="CONF_DEC">
+                        <DayAndTime Day="Sunday" TimeStart="00:10:33" TimeEnd="12:15:22"/>
+                        <DayAndTime Day="*" TimeStart="01:10:33" TimeEnd="12:15:22"/>
+                    </DaysAndTimes>
+                    <Documents ConfigField="NOT_CONF_MAKE_DEC">
+                        <Document Type="*"/>
+                    </Documents>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="DENY_TRAFFIC" Priority_Action="1"/>
+                    <Action Name_Action="COUNT" Priority_Action="1"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF1"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

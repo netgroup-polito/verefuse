@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ChainFunctionalities xmlns="http://www.verifuse.polito.it/chainfunctionality">
+    <Chain Chain_ID="Requirement_64">
+        <Solution Sol_ID="SOL_0-SET_1" Satisfiability="PARTIAL">
+            <Functionality>
+                <Fields>
+                    <IpSrc Version="IPV_4" Address="10.0.3.21/24" ConfigField="CONF_DEC"/>
+                    <PortDst Range="100-10500" RangeSetting="OUTSIDE" ConfigField="CONF_DEC"/>
+                    <Proto TypeProtocol="UDP" ConfigField="CONF_DEC"/>
+                </Fields>
+                <Actions>
+                    <Action Name_Action="ENCRYPT_TRAFFIC" Constraint_Action="AES128"/>
+                </Actions>
+                <SupportedByVNFS>
+                    <Vnf Name="VNF3"/>
+                </SupportedByVNFS>
+            </Functionality>
+        </Solution>
+    </Chain>
+</ChainFunctionalities>

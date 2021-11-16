@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tools
+	xmlns="http://www.verifuse.polito.it/tools"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.verifuse.polito.it/tools ../../../../../../../xsd/tools.xsd">
+
+	<GrapghNeo4j 	Enable="false"/>
+	<MarshallOnfile Enable="false"/>
+	<OutputOnFile 	Enable="false"/>
+
+</Tools>

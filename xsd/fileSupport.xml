@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fileSupport
+	xmlns="http://www.verifuse.polito.it/filesupport"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.verifuse.polito.it/filesupport fileSupport.xsd">
+
+	<Suite NameSuite="AUTHN_TRAFFIC_base">
+		<SupportValue value="PSK"/>
+		<SupportValue value="KERBEROS"/>
+		<SupportValue value="SRP"/>
+	</Suite>
+	
+	<Suite NameSuite="PROTOCOL_base">
+		<SupportValue value="TCP"/>
+		<SupportValue value="UDP"/>
+		<SupportValue value="HTTP"/>	
+		<SupportValue value="HTTPs"/>
+		<SupportValue value="SMTP"/>	
+		<SupportValue value="SMNP"/>
+	</Suite>
+	
+	<Suite NameSuite="VPN_TRAFFIC_base">
+		<SupportValue value="SSL_NULL_WITH_NULL_NULL"/>
+		<SupportValue value="SSL_RSA_WITH_NULL_SHA"/>
+		<SupportValue value="SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5"/>
+		<SupportValue value="SSL_RSA_WITH_3DES_EDE_CBC_SHA"/>
+		<SupportValue value="TLS_DHE_DSS_WHIT_3DES_EDE_CBC_SHA"/>
+	</Suite>
+
+	<Suite NameSuite="ENCRYPT_TRAFFIC_base">
+		<SupportValue value="AES-128-CBC"/>
+		<SupportValue value="AES-128-CBC"/>
+		<SupportValue value="AES-192-CBC"/>
+		<SupportValue value="AES-192-CBC"/>
+		<SupportValue value="AES-256-CBC"/>
+		<SupportValue value="AES-256-CBC"/>		
+	</Suite>
+	
+	<Suite NameSuite="PROTECT_INTEGRITY_base">
+		<SupportValue value="SHA1"/>
+		<SupportValue value="SHA224"/>
+		<SupportValue value="SHA256"/>
+		<SupportValue value="SHA512"/>
+		<SupportValue value="SHA3"/>
+		<SupportValue value="RIPEMD-160"/>
+		<SupportValue value="MD5"/>
+		<SupportValue value="MD4"/>
+		<SupportValue value="MD2"/>
+	</Suite>
+	<Suite NameSuite="LIMIT_BANDWIDTH_v1">
+		<SupportValue value="10Mbit/s"/>
+		<SupportValue value="20Mbit/s"/>
+		<SupportValue value="30Mbit/s"/>
+	</Suite>
+	<Suite NameSuite="LIMIT_BANDWIDTH_v2">
+		<SupportValue value="100Mbit/s"/>
+	</Suite>
+	
+
+
+</fileSupport>

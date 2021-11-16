@@ -1,0 +1,123 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.verifuse.polito.it/rest/caid"
+        xmlns:cap="http://www.verifuse.polito.it/capabilities"
+        xmlns:pol="http://www.verifuse.polito.it/policyrepository"
+        targetNamespace="http://www.verifuse.polito.it/rest/caid"
+        elementFormDefault="qualified">
+
+	<annotation>
+      	<documentation xml:lang="en">
+	      	This schema was created to represent the answers to the REST API by the CAID module.
+    	</documentation>
+  	</annotation>
+  	
+  	<import namespace="http://www.verifuse.polito.it/capabilities"     schemaLocation="../../xsd/capabilities.xsd"/>
+  	<import namespace="http://www.verifuse.polito.it/policyrepository" schemaLocation="../../xsd/PolicyRepository.xsd"/>  
+  	
+  	<!-- Definition of the CAID element -->
+  	<element name="CAIDResponse">
+	  	<complexType>
+			<sequence>
+				<element name="self" 				 type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="capabilities" 	 	 type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="capabilitiesRequired" type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="policies"		     type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="templates"			 type="anyURI" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</complexType>
+	</element>
+  	
+  	<!-- Definition of the Capabilities element -->
+  	<element name="CapabilitiesResponse">
+  		<complexType>
+			<sequence>
+				<element name="totalPages" 		type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+				<element name="page" 	   		type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+				<element name="next" 	   		type="anyURI" 		   minOccurs="1" maxOccurs="1"/>
+				<element ref="tns:CapabilityResponse" 		     	   minOccurs="1" maxOccurs="20"/>
+			</sequence>
+		</complexType>
+  	</element>
+  	<element name="CapabilitiesRequiredResponse">
+  		<complexType>
+			<sequence>
+				<element name="totalPages" 		type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+				<element name="page" 	   		type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+				<element name="next" 	   		type="anyURI" 		   minOccurs="1" maxOccurs="1"/>
+				<element ref="tns:CapabilityResponse" 		     	   minOccurs="1" maxOccurs="20"/>
+			</sequence>
+		</complexType>
+  	</element>
+  	
+  	<!-- Definition of the Capability element -->
+  	<element name="CapabilityResponse">
+  		<complexType>
+			<sequence>
+				<element name="self" type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element ref="cap:Features" 	   minOccurs="1" maxOccurs="1"/>
+			</sequence>
+			<attribute name="CapabilityID" type="string" use="required"/>
+		</complexType>
+  	</element>
+  	<element name="CapabilityRequiredResponse">
+		<complexType>
+			<sequence>
+				<element name="self" type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element ref="cap:Features" 	   minOccurs="1" maxOccurs="1"/>
+			</sequence>
+			<attribute name="CapabilityID" type="string" use="required"/>
+		</complexType>
+  	</element>
+  	
+  	
+  	
+  	<!-- Definition of the Policies element -->
+  	<element name="PoliciesResponse">
+	  	<complexType>
+			<sequence>
+				<element name="totalPages" 		type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+				<element name="page" 	   		type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+				<element name="next" 	   		type="anyURI" 		   minOccurs="1" maxOccurs="1"/>
+				<element ref="tns:PolicyResponse" 		     		   minOccurs="1" maxOccurs="20"/>
+			</sequence>
+		</complexType>
+	</element>
+  	
+  	
+  	<!-- Definition of the Policy element -->
+  	<element name="PolicyResponse">
+	  	<complexType>
+			<sequence>
+				<element name="self" 	      type="anyURI" 		   minOccurs="1" maxOccurs="1"/>
+				<element name="Author"   	  type="string"            minOccurs="1" maxOccurs="1"/>
+				<element name="PolicyRuleHPL" type="pol:PolicyRuleHPL" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="PolicyID" type="string" use="required"/>
+		</complexType>
+	</element>
+	
+  	<!-- Definition of the Templates element -->
+  	<element name="TemplatesResponse">
+	  	<complexType>
+			<sequence>
+				<element name="totalPages" 		type="positiveInteger"/>
+				<element name="page" 	   		type="positiveInteger"/>
+				<element name="next" 	   		type="anyURI" 		     minOccurs="0"/>
+				<element ref="tns:TemplateResponse" 		     		 minOccurs="1" maxOccurs="20"/>
+			</sequence>
+		</complexType>
+	</element>
+  	
+  	<!-- Definition of the Template element -->
+  	<element name="TemplateResponse">
+	  	<complexType>
+			<sequence>
+				<element name="self" 	  type="anyURI" minOccurs="1" maxOccurs="1"/>
+				<element name="Operation" type="pol:OperationHPL" minOccurs="1" maxOccurs="unbounded"/>
+	    	</sequence>
+	    	<attribute name="TemplateID" type="string" use="required"/>
+		</complexType>
+	</element>
+	
+</schema>
