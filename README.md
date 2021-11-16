@@ -1,4 +1,4 @@
-# EXTENSION - Verifuse (VERInet FUnction SElection and placement)
+# Verifuse (VERInet FUnction SElection and placement)
 The Extension of Verifuse framework is composed by two modules:
 
 1. **RDF** (Requirement Driven Functionality) which has the task of analyzing each requirement against all VNFs inside catalog and produce an entity called Functionality that represent  how a vnf can satisfy requirment and to send data to LER module.
